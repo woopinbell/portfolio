@@ -444,3 +444,194 @@ export type RouteSearchParams = Promise<
   Record<string, string | string[] | undefined>
 >;
 
+const site = siteJson as SiteContent;
+const profile = profileJson as ProfileContent;
+const presentation = presentationJson as PresentationContent;
+const projects = projectsJson as PortfolioProject[];
+const skills = skillsJson as SkillsContent;
+const techStack = techStackJson as TechStackItem[];
+const experience = experienceJson as ExperienceItem[];
+const journey = (journeyJson as JourneyItem[]).slice().sort((left, right) => {
+  const dateOrder = left.date.localeCompare(right.date);
+
+  if (dateOrder !== 0) {
+    return dateOrder;
+  }
+
+  return left.title.localeCompare(right.title);
+});
+const links = linksJson as ContentLink[];
+const contact = contactJson as ContactContent;
+const resume = resumeJson as ResumeContent;
+const techStackById = new Map(techStack.map((item) => [item.id, item]));
+
+function withEnvHref(link: ContentLink, env: PortfolioEnv): ContentLink {
+  const envValue = link.envKey ? env[link.envKey]?.trim() : undefined;
+
+  return {
+    ...link,
+    href: envValue && envValue.length > 0 ? envValue : link.href,
+  };
+}
+
+export function getEnabledLinks(contentLinks: ContentLink[] = links) {
+  return contentLinks.filter((link) => link.enabled !== false);
+}
+
+export function getPortfolioContent(
+  env: PortfolioEnv = {
+    NEXT_PUBLIC_DASHBOARD_URL: process.env.NEXT_PUBLIC_DASHBOARD_URL,
+    NEXT_PUBLIC_SEOUL_APP_URL: process.env.NEXT_PUBLIC_SEOUL_APP_URL,
+  },
+): PortfolioContent {
+  const resolvedProjects = projects
+    .filter((project) => project.enabled !== false)
+    .map((project) => ({
+      ...project,
+      links: project.links
+        .filter((link) => link.enabled !== false)
+        .map((link) => withEnvHref(link, env)),
+    }));
+
+  return {
+    site,
+    profile,
+    projects: resolvedProjects,
+    presentation,
+    skills,
+    techStack,
+    experience,
+    journey,
+    links: getEnabledLinks(),
+    contact,
+    resume,
+  };
+}
+
+export function resolveHomeTemplateId(
+  value: string | string[] | undefined,
+  content: PresentationContent = presentation,
+): HomeTemplateId {
+  const templateId = Array.isArray(value) ? value[0] : value;
+
+  if (
+    templateId &&
+    content.templates.some((template) => template.id === templateId)
+  ) {
+    return templateId as HomeTemplateId;
+  }
+
+  return content.defaultHomeTemplate;
+}
+
+export function resolveContentDebug(value: string | string[] | undefined) {
+  return (Array.isArray(value) ? value[0] : value) === "content";
+}
+
+export function getTemplateHref(
+  href: string,
+  templateId?: HomeTemplateId,
+  options: { alwaysInclude?: boolean; contentDebug?: boolean } = {},
+) {
+  if (!templateId || !href.startsWith("/") || href.startsWith("//")) {
+    return href;
+  }
+
+  const hashIndex = href.indexOf("#");
+  const withoutHash = hashIndex === -1 ? href : href.slice(0, hashIndex);
+  const hash = hashIndex === -1 ? "" : href.slice(hashIndex);
+  const [pathname, query] = withoutHash.split("?", 2);
+  const params = new URLSearchParams(query);
+  const shouldIncludeView = options.alwaysInclude || templateId !== "design";
+
+  if (shouldIncludeView) {
+    params.set("view", templateId);
+  } else {
+    params.delete("view");
+  }
+
+  if (options.contentDebug) {
+    params.set("debug", "content");
+  }
+
+  const queryString = params.toString();
+
+  return `${pathname}${queryString ? `?${queryString}` : ""}${hash}`;
+}
+
+export function resolveTechStackItem(
+  id: string,
+): TechStackItem {
+  return (
+    techStackById.get(id) ?? {
+      id,
+      label: id,
+      icon: "tool",
+      color: "#9cc8b1",
+    }
+  );
+}
+
+export function getFeaturedProjects(
+  content: PortfolioContent = getPortfolioContent(),
+) {
+  return content.projects.filter((project) => project.featured);
+}
+
+export function getProjectById(
+  projectId: string,
+  content: PortfolioContent = getPortfolioContent(),
+) {
+  return content.projects.find((project) => project.id === projectId) ?? null;
+}
+
+export function getResumeProjects(
+  content: PortfolioContent = getPortfolioContent(),
+) {
+  const byId = new Map(content.projects.map((project) => [project.id, project]));
+
+  return content.resume.projectIds
+    .map((projectId) => byId.get(projectId))
+    .filter((project): project is PortfolioProject => Boolean(project));
+}
+
+export function getPreferredContactLinks(
+  content: PortfolioContent = getPortfolioContent(),
+) {
+  const byId = new Map(content.links.map((link) => [link.id, link]));
+
+  return content.contact.preferred
+    .map((id) => byId.get(id))
+    .filter((link): link is ContentLink => Boolean(link));
+}
+
+export function getProjectLink(project: PortfolioProject, type: LinkType) {
+  return project.links.find((link) => link.type === type) ?? null;
+}
+
+export function isProjectLive(project: PortfolioProject) {
+  return Boolean(
+    project.deployment.status === "live" && getProjectLink(project, "demo"),
+  );
+}
+
+export function getProjectCardLinks(project: PortfolioProject) {
+  return project.links.filter((link) => {
+    if (link.type === "demo") {
+      return isProjectLive(project);
+    }
+
+    return link.type === "github" || link.type === "case-study";
+  });
+}
+
+export function getExternalLinkProps(link: ContentLink) {
+  if (!link.external) {
+    return {};
+  }
+
+  return {
+    rel: "noreferrer",
+    target: "_blank",
+  };
+}
