@@ -1,0 +1,266 @@
+{
+  "defaultHomeTemplate": "design",
+  "templates": [
+    {
+      "id": "design",
+      "label": "Design",
+      "description": "Design template placeholder."
+    },
+    {
+      "id": "classic",
+      "label": "Classic",
+      "description": "Classic template placeholder."
+    }
+  ],
+  "home": {
+    "design": {
+      "hero": {
+        "primaryActionLabel": "Projects",
+        "leadLabel": "Lead case study",
+        "leadActionLabel": "Open",
+        "stats": [
+          {
+            "label": "Product",
+            "countKey": "productCount"
+          },
+          {
+            "label": "42 archive",
+            "countKey": "curriculumCount"
+          },
+          {
+            "label": "Reliability",
+            "countKey": "reliabilityCount"
+          }
+        ]
+      },
+      "sections": [
+        "featured",
+        "workMap",
+        "technicalFocus",
+        "stack",
+        "journey",
+        "contact"
+      ],
+      "featured": {
+        "title": "Featured",
+        "body": "Featured placeholder.",
+        "actionLabel": "View all projects"
+      }
+    },
+    "classic": {
+      "hero": {
+        "primaryActionLabel": "Projects"
+      },
+      "sections": [
+        "featured",
+        "workMap",
+        "technicalFocus",
+        "stack",
+        "journey",
+        "contact"
+      ],
+      "featured": {
+        "title": "Selected work",
+        "body": "Selected work placeholder.",
+        "actionLabel": "View all projects"
+      },
+      "terminal": {
+        "title": "portfolio.sh",
+        "bootLine": "boot placeholder",
+        "promptUser": "user",
+        "promptPath": "~/portfolio",
+        "commands": [
+          {
+            "command": "status",
+            "output": [
+              "placeholder"
+            ]
+          }
+        ]
+      }
+    },
+    "shared": {
+      "workMap": {
+        "title": "Work map",
+        "body": "Work map placeholder.",
+        "cards": [
+          {
+            "id": "product",
+            "label": "Product",
+            "body": "Product placeholder.",
+            "countKey": "productCount"
+          },
+          {
+            "id": "curriculum",
+            "label": "Curriculum",
+            "body": "Curriculum placeholder.",
+            "countKey": "curriculumCount"
+          },
+          {
+            "id": "reliability",
+            "label": "Reliability",
+            "body": "Reliability placeholder.",
+            "countKey": "reliabilityCount"
+          }
+        ]
+      },
+      "technicalFocus": {
+        "title": "Technical focus",
+        "body": "Technical focus placeholder."
+      },
+      "stack": {
+        "title": "Stack",
+        "body": "Stack placeholder."
+      },
+      "journey": {
+        "title": "Journey",
+        "body": "Journey placeholder."
+      },
+      "contact": {
+        "title": "Contact",
+        "actionLabel": "Contact page"
+      }
+    }
+  },
+  "pages": {
+    "projects": {
+      "groups": [],
+      "design": {
+        "hero": {
+          "title": "Projects",
+          "body": "Projects placeholder.",
+          "stats": {
+            "visibleEntries": "visible entries",
+            "archive": "archive",
+            "sourceFirst": "source-first"
+          }
+        },
+        "featured": {
+          "eyebrow": "Featured",
+          "title": "Lead projects",
+          "body": "Lead projects placeholder."
+        },
+        "group": {
+          "countLabel": "projects"
+        }
+      },
+      "classic": {
+        "hero": {
+          "eyebrow": "projects.index",
+          "title": "Project archive",
+          "body": "Project archive placeholder.",
+          "stats": [
+            {
+              "label": "Entries",
+              "countKey": "projectCount"
+            },
+            {
+              "label": "42 archive",
+              "countKey": "curriculumCount"
+            },
+            {
+              "label": "Source-first",
+              "countKey": "sourceOnlyCount"
+            }
+          ]
+        },
+        "terminal": {
+          "ariaLabel": "Project archive terminal",
+          "title": "projects.index",
+          "promptUser": "user",
+          "promptPath": "~/portfolio",
+          "command": "projects --grouped",
+          "entryLabel": "entries",
+          "maxGroups": 5
+        },
+        "selected": {
+          "eyebrow": "Selected work",
+          "title": "Representative case",
+          "body": "Representative case placeholder."
+        },
+        "grouped": {
+          "eyebrow": "Archive tracks",
+          "title": "Grouped index",
+          "body": "Grouped index placeholder.",
+          "countLabel": "projects"
+        }
+      }
+    },
+    "projectDetail": {
+      "backLabel": "Projects",
+      "sections": {
+        "problem": {
+          "eyebrow": "Problem",
+          "title": "Problem statement"
+        },
+        "solution": {
+          "eyebrow": "Solution",
+          "title": "Solution summary"
+        },
+        "architecture": {
+          "eyebrow": "Architecture",
+          "title": "Architecture"
+        },
+        "screenshots": {
+          "eyebrow": "Screenshots",
+          "title": "Gallery"
+        },
+        "stack": {
+          "eyebrow": "Stack",
+          "title": "Tech stack"
+        },
+        "decisions": {
+          "eyebrow": "Decisions",
+          "title": "Key technical decisions"
+        },
+        "tradeoffs": {
+          "eyebrow": "Tradeoffs",
+          "title": "Challenges and tradeoffs"
+        },
+        "result": {
+          "eyebrow": "Result",
+          "title": "Result"
+        }
+      }
+    },
+    "about": {
+      "hero": {
+        "title": "About"
+      },
+      "principles": {
+        "title": "Working principles"
+      },
+      "journey": {
+        "title": "Journey"
+      },
+      "skills": {
+        "title": "Skills"
+      }
+    },
+    "resume": {
+      "hero": {
+        "title": "Resume",
+        "body": "Resume placeholder.",
+        "downloadLabel": "Download PDF"
+      },
+      "summary": {
+        "title": "Summary"
+      },
+      "projects": {
+        "title": "Project experience",
+        "caseStudyLabel": "Case study"
+      },
+      "training": {
+        "title": "Training"
+      }
+    },
+    "contact": {
+      "availability": {
+        "title": "Availability"
+      },
+      "notes": {
+        "title": "Content notes"
+      }
+    }
+  }
+}
