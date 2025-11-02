@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Reliability Training Series preview</title>
+  <desc id="desc">A stylized reliability training board for backend, frontend, and game server failure drills.</desc>
+  <rect width="1600" height="1000" fill="#f8fafc"/>
+  <rect x="110" y="90" width="1380" height="820" rx="40" fill="#101827"/>
+  <text x="170" y="166" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="950">Reliability Training Series</text>
+  <text x="172" y="210" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">backend · frontend · game server</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="170" y="290" width="360" height="460" rx="28" fill="#17243a" stroke="#31506f"/>
+    <text x="210" y="348" fill="#bfdbfe" font-size="26" font-weight="950">Backend</text>
+    <text x="210" y="390" fill="#d7e4f5" font-size="17" font-weight="700">API failures, retries, storage, observability</text>
+    <path d="M210 470h260M210 536h210M210 602h238" stroke="#38bdf8" stroke-width="12" stroke-linecap="round" opacity=".55"/>
+    <rect x="210" y="660" width="220" height="46" rx="14" fill="#0f766e"/><text x="238" y="690" fill="#ccfbf1" font-size="15" font-weight="900">recovery path</text>
+    <rect x="620" y="290" width="360" height="460" rx="28" fill="#17243a" stroke="#31506f"/>
+    <text x="660" y="348" fill="#bfdbfe" font-size="26" font-weight="950">Frontend</text>
+    <text x="660" y="390" fill="#d7e4f5" font-size="17" font-weight="700">rendering, error states, browser checks</text>
+    <rect x="660" y="456" width="250" height="70" rx="18" fill="#eff6ff"/><text x="690" y="499" fill="#1d4ed8" font-size="17" font-weight="900">Playwright smoke</text>
+    <rect x="660" y="552" width="250" height="70" rx="18" fill="#ecfdf5"/><text x="690" y="595" fill="#047857" font-size="17" font-weight="900">UI fallback state</text>
+    <rect x="1070" y="290" width="360" height="460" rx="28" fill="#17243a" stroke="#31506f"/>
+    <text x="1110" y="348" fill="#bfdbfe" font-size="26" font-weight="950">Game server</text>
+    <text x="1110" y="390" fill="#d7e4f5" font-size="17" font-weight="700">session, latency, reconnect drills</text>
+    <circle cx="1160" cy="506" r="42" fill="#f59e0b"/><circle cx="1265" cy="560" r="42" fill="#00a2a3"/><circle cx="1340" cy="470" r="42" fill="#ef5da8"/>
+    <path d="M1160 506 1265 560 1340 470" stroke="#f8fafc" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+  </g>
+  <rect x="170" y="800" width="1260" height="58" rx="18" fill="#f8fafc"/>
+  <text x="212" y="837" fill="#14213d" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">Failure drills are grouped as process evidence instead of crowding the lead product case studies.</text>
+</svg>

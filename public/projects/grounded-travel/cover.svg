@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Grounded Travel Agent interface preview</title>
+  <desc id="desc">A stylized travel planning interface with a control panel, itinerary cards, map panel, agent trace, and validation summary.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbfb"/>
+      <stop offset="0.52" stop-color="#e9f8f5"/>
+      <stop offset="1" stop-color="#dbeefc"/>
+    </linearGradient>
+    <linearGradient id="map" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c8efe2"/>
+      <stop offset="0.5" stop-color="#e6f4cf"/>
+      <stop offset="1" stop-color="#cfe7ff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef7f7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="30" flood-color="#0f2740" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <path d="M0 170C190 76 311 73 472 125c193 62 350 31 529-58 184-91 371-66 599 24v909H0Z" fill="#fff" opacity=".58"/>
+  <rect x="80" y="72" width="1440" height="856" rx="42" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="80" y="72" width="1440" height="84" rx="42" fill="#101928"/>
+  <circle cx="132" cy="114" r="22" fill="#18b7b2"/>
+  <path d="M132 100c-8 0-14 6-14 14 0 11 14 25 14 25s14-14 14-25c0-8-6-14-14-14Zm0 20a6 6 0 1 1 0-12 6 6 0 0 1 0 12Z" fill="#fff"/>
+  <text x="176" y="123" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Grounded Travel Agent</text>
+  <rect x="1000" y="94" width="146" height="40" rx="12" fill="#17243a"/>
+  <text x="1026" y="120" fill="#bff4e5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">KO</text>
+  <text x="1090" y="120" fill="#9fb0c5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">EN</text>
+  <rect x="1170" y="92" width="170" height="44" rx="14" fill="#17243a" stroke="#2e405d"/>
+  <text x="1200" y="121" fill="#d9e8f7" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Local Ollama</text>
+  <rect x="1360" y="92" width="122" height="44" rx="14" fill="#00a2a3"/>
+  <text x="1390" y="121" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Plan</text>
+  <rect x="80" y="156" width="350" height="772" fill="#f8fbfb"/>
+  <text x="122" y="220" fill="#24344d" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800">Planner input</text>
+  <rect x="122" y="252" width="256" height="52" rx="14" fill="#fff" stroke="#cad9e8"/>
+  <text x="146" y="285" fill="#1d2f49" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Tokyo, Japan</text>
+  <text x="122" y="354" fill="#415674" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">Interests</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">
+    <rect x="122" y="376" width="112" height="40" rx="20" fill="#d7f6f1" stroke="#82d9d0"/>
+    <text x="146" y="402" fill="#007e7e">Cafe</text>
+    <rect x="246" y="376" width="142" height="40" rx="20" fill="#d7f6f1" stroke="#82d9d0"/>
+    <text x="270" y="402" fill="#007e7e">Bookstore</text>
+    <rect x="122" y="430" width="160" height="40" rx="20" fill="#d7f6f1" stroke="#82d9d0"/>
+    <text x="146" y="456" fill="#007e7e">Architecture</text>
+    <rect x="122" y="524" width="116" height="52" rx="13" fill="#ffffff" stroke="#cbd8e6"/>
+    <text x="151" y="557" fill="#263956">3 days</text>
+    <rect x="252" y="524" width="136" height="52" rx="13" fill="#ffffff" stroke="#cbd8e6"/>
+    <text x="283" y="557" fill="#263956">Balanced</text>
+  </g>
+  <rect x="122" y="664" width="256" height="56" rx="15" fill="#fff" stroke="#cad9e8"/>
+  <text x="146" y="698" fill="#22344e" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">qwen3:4b</text>
+  <rect x="470" y="204" width="540" height="612" rx="26" fill="url(#card)" stroke="#c8ddea"/>
+  <text x="506" y="262" fill="#142237" font-family="Inter, Arial, sans-serif" font-size="33" font-weight="900">Itinerary</text>
+  <text x="506" y="300" fill="#00938f" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">Day 1 · Ginza / Jimbocho</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="506" y="340" width="468" height="126" rx="18" fill="#fff" stroke="#83d4cc"/>
+    <circle cx="542" cy="403" r="19" fill="#00a2a3"/>
+    <text x="537" y="410" fill="#fff" font-size="17" font-weight="900">1</text>
+    <rect x="584" y="366" width="118" height="74" rx="10" fill="#d8b47d"/>
+    <text x="726" y="389" fill="#18283c" font-size="20" font-weight="900">Sogen-do Books</text>
+    <rect x="726" y="406" width="102" height="28" rx="8" fill="#d7f6f1"/>
+    <text x="743" y="425" fill="#007e7e" font-size="13" font-weight="900">Bookstore</text>
+    <text x="874" y="410" fill="#52657d" font-size="17" font-weight="700">0.2 km</text>
+    <text x="874" y="435" fill="#52657d" font-size="17" font-weight="700">3 min</text>
+    <rect x="506" y="488" width="468" height="126" rx="18" fill="#fff" stroke="#dde7f0"/>
+    <circle cx="542" cy="551" r="19" fill="#00a2a3"/>
+    <text x="537" y="558" fill="#fff" font-size="17" font-weight="900">2</text>
+    <rect x="584" y="514" width="118" height="74" rx="10" fill="#d7ad6b"/>
+    <text x="726" y="537" fill="#18283c" font-size="20" font-weight="900">Pelican Coffee</text>
+    <rect x="726" y="554" width="74" height="28" rx="8" fill="#d7f6f1"/>
+    <text x="744" y="573" fill="#007e7e" font-size="13" font-weight="900">Cafe</text>
+    <text x="874" y="558" fill="#52657d" font-size="17" font-weight="700">0.4 km</text>
+    <text x="874" y="583" fill="#52657d" font-size="17" font-weight="700">6 min</text>
+    <rect x="506" y="636" width="468" height="126" rx="18" fill="#fff" stroke="#dde7f0"/>
+    <circle cx="542" cy="699" r="19" fill="#00a2a3"/>
+    <text x="537" y="706" fill="#fff" font-size="17" font-weight="900">3</text>
+    <rect x="584" y="662" width="118" height="74" rx="10" fill="#91a7ba"/>
+    <text x="726" y="685" fill="#18283c" font-size="20" font-weight="900">Tadao Ando Gallery</text>
+    <rect x="726" y="702" width="116" height="28" rx="8" fill="#d7f6f1"/>
+    <text x="742" y="721" fill="#007e7e" font-size="13" font-weight="900">Architecture</text>
+  </g>
+  <rect x="1050" y="204" width="390" height="612" rx="26" fill="url(#map)" stroke="#c8ddea"/>
+  <path d="M1078 384c87-32 150-27 226-78 56-38 94-27 136-13" fill="none" stroke="#ffffff" stroke-width="22" opacity=".72"/>
+  <path d="M1074 530c74-54 138-65 212-42 58 18 94 6 144-28" fill="none" stroke="#ffffff" stroke-width="18" opacity=".72"/>
+  <path d="M1110 242v540M1184 220v590M1262 218v590M1344 218v590" stroke="#87c5c8" stroke-width="4" opacity=".55"/>
+  <path d="M1074 318h338M1074 432h338M1074 558h338M1074 692h338" stroke="#87c5c8" stroke-width="4" opacity=".55"/>
+  <path d="M1222 428 1144 520 1256 620 1338 506" fill="none" stroke="#374151" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".56"/>
+  <g font-family="Inter, Arial, sans-serif" font-weight="900">
+    <circle cx="1222" cy="428" r="24" fill="#ef5da8"/>
+    <text x="1216" y="436" fill="#fff" font-size="20">1</text>
+    <circle cx="1144" cy="520" r="24" fill="#00a2a3"/>
+    <text x="1138" y="528" fill="#fff" font-size="20">2</text>
+    <circle cx="1256" cy="620" r="24" fill="#f59e0b"/>
+    <text x="1250" y="628" fill="#fff" font-size="20">3</text>
+  </g>
+  <rect x="470" y="840" width="970" height="60" rx="18" fill="#f8fbfb" stroke="#d9e6ee"/>
+  <text x="506" y="877" fill="#142237" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="900">Agent Trace</text>
+  <rect x="658" y="856" width="146" height="28" rx="14" fill="#ecfdf5"/>
+  <text x="682" y="876" fill="#00806f" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900">validated</text>
+  <rect x="824" y="856" width="166" height="28" rx="14" fill="#eff6ff"/>
+  <text x="850" y="876" fill="#2563eb" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900">replan ready</text>
+  <rect x="1188" y="850" width="218" height="40" rx="14" fill="#101928"/>
+  <text x="1218" y="876" fill="#bff4e5" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900">Validation 92 / 100</text>
+</svg>

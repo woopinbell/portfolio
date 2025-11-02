@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio Site case study preview</title>
+  <desc id="desc">A stylized editorial portfolio layout with hero, case studies, project archive, and content registry.</desc>
+  <rect width="1600" height="1000" fill="#f7faf8"/>
+  <path d="M0 780c220-88 412-60 620-8 244 61 505 28 980-104v332H0Z" fill="#e7f4f1"/>
+  <rect x="100" y="86" width="1400" height="828" rx="38" fill="#fff" stroke="#d1dddb"/>
+  <rect x="150" y="134" width="1300" height="64" rx="20" fill="#14213d"/>
+  <text x="186" y="175" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900">Woopinbell</text>
+  <text x="1060" y="174" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Projects</text>
+  <text x="1160" y="174" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Resume</text>
+  <text x="1250" y="174" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Contact</text>
+  <text x="162" y="296" fill="#14213d" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="950">Design-minded</text>
+  <text x="162" y="370" fill="#14213d" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="950">Web Developer</text>
+  <text x="166" y="424" fill="#5f6d7d" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="650">Product UI · case studies · working demos · verification evidence</text>
+  <rect x="166" y="488" width="166" height="52" rx="15" fill="#008c89"/><text x="206" y="521" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">Projects</text>
+  <rect x="350" y="488" width="148" height="52" rx="15" fill="#fff" stroke="#cbd8d7"/><text x="390" y="521" fill="#14213d" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">Resume</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="792" y="250" width="568" height="310" rx="28" fill="#e9f8f5" stroke="#cbd8d7"/>
+    <rect x="830" y="294" width="220" height="130" rx="20" fill="#fff" stroke="#b9dbd5"/>
+    <text x="856" y="336" fill="#008c89" font-size="18" font-weight="900">Grounded Travel</text>
+    <text x="856" y="368" fill="#4c5f72" font-size="14" font-weight="750">planner · map · trace</text>
+    <rect x="1080" y="294" width="238" height="130" rx="20" fill="#101827"/>
+    <text x="1110" y="336" fill="#bfdbfe" font-size="18" font-weight="900">Evaluation Lab</text>
+    <text x="1110" y="368" fill="#d7e4f5" font-size="14" font-weight="750">scores · review · report</text>
+    <rect x="830" y="454" width="488" height="66" rx="18" fill="#fff" stroke="#b9dbd5"/>
+    <text x="856" y="494" fill="#14213d" font-size="18" font-weight="900">Project archive synced from JSON content registry</text>
+  </g>
+  <rect x="166" y="646" width="1194" height="158" rx="28" fill="#f8fbfb" stroke="#d1dddb"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="206" y="700" fill="#14213d" font-size="25" font-weight="950">Case study order</text>
+    <text x="206" y="742" fill="#5f6d7d" font-size="18" font-weight="700">Lead product screens first, then reliability training and 42 archive grouped by problem domain.</text>
+    <rect x="1050" y="684" width="130" height="54" rx="16" fill="#ecfdf5"/><text x="1080" y="718" fill="#047857" font-size="16" font-weight="900">24 items</text>
+    <rect x="1200" y="684" width="120" height="54" rx="16" fill="#eff6ff"/><text x="1234" y="718" fill="#2563eb" font-size="16" font-weight="900">tested</text>
+  </g>
+</svg>
