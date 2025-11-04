@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-label="Signal Message Bus technical preview">
+  <rect width="1280" height="800" fill="#101717"/>
+  <path d="M0 120H1280M0 260H1280M0 400H1280M0 540H1280M0 680H1280" stroke="#d9d2bf" stroke-opacity="0.08"/>
+  <path d="M160 0V800M360 0V800M560 0V800M760 0V800M960 0V800M1160 0V800" stroke="#d9d2bf" stroke-opacity="0.08"/>
+  <rect x="72" y="68" width="1136" height="664" rx="26" fill="#000" fill-opacity="0.18" stroke="#d9d2bf" stroke-opacity="0.18"/>
+  <rect x="112" y="108" width="1056" height="56" rx="14" fill="#000" fill-opacity="0.24" stroke="#d9d2bf" stroke-opacity="0.16"/>
+  <circle cx="144" cy="136" r="7" fill="#6bd3c8"/>
+  <circle cx="170" cy="136" r="7" fill="#d9d2bf" fill-opacity="0.55"/>
+  <circle cx="196" cy="136" r="7" fill="#d9d2bf" fill-opacity="0.28"/>
+  <text x="112" y="236" fill="#6bd3c8" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="24" font-weight="700" letter-spacing="2">Network &amp; Infrastructure</text>
+  <text x="112" y="318" fill="#f5f1e8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="58" font-weight="720">Signal Message Bus</text>
+  <text x="112" y="372" fill="#d9d2bf" font-family="ui-sans-serif, system-ui, sans-serif" font-size="25">Protocol and message routing model</text>
+  <g transform="translate(112 448)">
+    <rect width="500" height="136" rx="18" fill="#000" fill-opacity="0.24" stroke="#d9d2bf" stroke-opacity="0.14"/>
+    <text x="28" y="50" fill="#d9d2bf" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20">stack</text>
+    <text x="28" y="94" fill="#f5f1e8" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="24">cpp / networking / protocol-fixtures / make</text>
+  </g>
+  <g transform="translate(700 420)">
+    <path d="M0 74C120 0 236 0 356 74S592 148 704 74" fill="none" stroke="#6bd3c8" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+    <path d="M0 160C120 86 236 86 356 160S592 234 704 160" fill="none" stroke="#d9d2bf" stroke-width="2" stroke-linecap="round" opacity="0.42"/>
+    <circle cx="0" cy="74" r="10" fill="#6bd3c8"/>
+    <circle cx="356" cy="74" r="10" fill="#6bd3c8"/>
+    <circle cx="704" cy="74" r="10" fill="#6bd3c8"/>
+  </g>
+</svg>
