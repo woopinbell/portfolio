@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "id": "github",
+    "label": "GitHub",
+    "href": "https://github.com/Woopinbell",
+    "type": "github",
+    "external": true,
+    "enabled": true
+  },
+  {
+    "id": "resume",
+    "label": "Resume",
+    "href": "/resume",
+    "type": "resume",
+    "external": false,
+    "enabled": true
+  },
+  {
+    "id": "contact",
+    "label": "Contact",
+    "href": "/contact",
+    "type": "website",
+    "external": false,
+    "enabled": true
+  },
+  {
+    "id": "email",
+    "label": "Email",
+    "href": "mailto:replace-me@example.com",
+    "type": "email",
+    "external": false,
+    "enabled": false
+  }
+]

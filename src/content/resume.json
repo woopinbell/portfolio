@@ -1,8 +1,26 @@
 {
   "downloadUrl": null,
-  "summary": [],
-  "projectIds": [],
-  "training": [],
+  "summary": [
+    "Full-stack web developer focused on building maintainable web applications, product interfaces, and clear API boundaries.",
+    "No professional experience yet; the resume is intentionally project-led and uses public work as the main evidence."
+  ],
+  "projectIds": [
+    "portfolio-site",
+    "pong-pong",
+    "backend-reliability-training",
+    "small-shell",
+    "stl-container"
+  ],
+  "training": [
+    {
+      "name": "42 Seoul",
+      "period": "Completed core training",
+      "description": "Peer-learning software training focused on C, Unix, algorithms, systems programming, and collaborative projects."
+    }
+  ],
   "education": [],
-  "notes": []
+  "notes": [
+    "PDF resume can be added later by setting downloadUrl in resume.json.",
+    "Project entries are pulled from projects.json so the resume stays synchronized with the portfolio."
+  ]
 }

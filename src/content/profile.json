@@ -1,11 +1,28 @@
 {
-  "name": "Profile Name",
-  "koreanName": "프로필 이름",
-  "handle": "handle",
-  "role": "Web Developer",
-  "headline": "Portfolio headline placeholder.",
-  "summary": "Portfolio summary placeholder.",
-  "location": "Seoul, Korea",
-  "availability": "Available for portfolio review.",
-  "principles": []
+  "name": "Seungwoo Kim",
+  "koreanName": "김승우",
+  "handle": "Woopinbell",
+  "role": "Design-minded Web Developer",
+  "headline": "I turn technical systems into inspectable product interfaces, case studies, and working demos.",
+  "summary": "제품 화면, API 경계, 데이터 흐름, 검증 기록을 함께 설계해 작업물이 보기 좋고 설명 가능하며 실제로 실행되도록 만드는 개발자입니다.",
+  "location": "South Korea",
+  "availability": "Open to project-based collaboration and junior web developer opportunities.",
+  "photo": {
+    "src": "/profile/portrait-placeholder.svg",
+    "alt": "Seungwoo Kim profile portrait placeholder"
+  },
+  "principles": [
+    {
+      "title": "Build inspectable work",
+      "body": "데모가 없더라도 스크린샷, 소스, 구조 설명으로 작업물을 검토할 수 있게 정리합니다."
+    },
+    {
+      "title": "Prefer maintainable systems",
+      "body": "컴포넌트, 콘텐츠, 링크, 상태값을 분리해 수정 가능한 구조를 우선합니다."
+    },
+    {
+      "title": "Show evidence, not decoration",
+      "body": "화려한 효과보다 실제 화면과 구현 결정이 신뢰를 만들도록 설계합니다."
+    }
+  ]
 }

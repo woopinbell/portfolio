@@ -1,7 +1,10 @@
 {
   "title": "Contact",
-  "intro": "Contact intro placeholder.",
-  "availability": "Availability placeholder.",
-  "preferred": [],
-  "notes": []
+  "intro": "프로젝트나 협업 제안은 공개 링크를 통해 먼저 확인할 수 있게 정리했습니다. 이메일은 실제 주소를 정한 뒤 contact.json에서 활성화하면 됩니다.",
+  "availability": "Available for web development projects and junior developer roles.",
+  "preferred": ["github", "resume"],
+  "notes": [
+    "GitHub 링크와 Resume 페이지는 JSON에서 관리됩니다.",
+    "이메일, LinkedIn, Discord 등은 links.json에 추가하거나 enabled 값을 바꾸면 노출됩니다."
+  ]
 }
