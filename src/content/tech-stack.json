@@ -1,1 +1,224 @@
-[]
+[
+  {
+    "id": "c",
+    "label": "C",
+    "icon": "c",
+    "color": "#a8b9cc"
+  },
+  {
+    "id": "cpp",
+    "label": "C++",
+    "icon": "cplusplus",
+    "color": "#00599c"
+  },
+  {
+    "id": "typescript",
+    "label": "TypeScript",
+    "icon": "typescript",
+    "color": "#3178c6"
+  },
+  {
+    "id": "java",
+    "label": "Java",
+    "icon": "tool",
+    "color": "#f89820"
+  },
+  {
+    "id": "nextjs",
+    "label": "Next.js",
+    "icon": "nextjs",
+    "color": "#ffffff"
+  },
+  {
+    "id": "react",
+    "label": "React",
+    "icon": "react",
+    "color": "#61dafb"
+  },
+  {
+    "id": "tailwind",
+    "label": "Tailwind CSS",
+    "icon": "tailwind",
+    "color": "#38bdf8"
+  },
+  {
+    "id": "spring",
+    "label": "Spring Boot",
+    "icon": "shield",
+    "color": "#6db33f"
+  },
+  {
+    "id": "nodejs",
+    "label": "Node.js",
+    "icon": "nodejs",
+    "color": "#5fa04e"
+  },
+  {
+    "id": "postgresql",
+    "label": "PostgreSQL",
+    "icon": "postgresql",
+    "color": "#4169e1"
+  },
+  {
+    "id": "redis",
+    "label": "Redis",
+    "icon": "redis",
+    "color": "#ff4438"
+  },
+  {
+    "id": "docker",
+    "label": "Docker",
+    "icon": "docker",
+    "color": "#2496ed"
+  },
+  {
+    "id": "unix",
+    "label": "Unix",
+    "icon": "terminal",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "linux",
+    "label": "Linux",
+    "icon": "terminal",
+    "color": "#f6d365"
+  },
+  {
+    "id": "make",
+    "label": "Make",
+    "icon": "tool",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "cmake",
+    "label": "CMake",
+    "icon": "cmake",
+    "color": "#064f8c"
+  },
+  {
+    "id": "parser",
+    "label": "Parser",
+    "icon": "flow",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "process-control",
+    "label": "Process Control",
+    "icon": "terminal",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "concurrency",
+    "label": "Concurrency",
+    "icon": "flow",
+    "color": "#d6a33d"
+  },
+  {
+    "id": "networking",
+    "label": "Networking",
+    "icon": "api",
+    "color": "#6bd3c8"
+  },
+  {
+    "id": "protocol-fixtures",
+    "label": "Protocol Fixtures",
+    "icon": "box",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "algorithms",
+    "label": "Algorithms",
+    "icon": "flow",
+    "color": "#f0b84f"
+  },
+  {
+    "id": "containers",
+    "label": "Containers",
+    "icon": "box",
+    "color": "#6aa6ff"
+  },
+  {
+    "id": "graphics",
+    "label": "Graphics",
+    "icon": "box",
+    "color": "#f17c67"
+  },
+  {
+    "id": "architecture",
+    "label": "Architecture",
+    "icon": "flow",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "documentation",
+    "label": "Documentation",
+    "icon": "json",
+    "color": "#d9d2bf"
+  },
+  {
+    "id": "websocket",
+    "label": "WebSocket",
+    "icon": "api",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "rest-api",
+    "label": "REST API",
+    "icon": "api",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "validation",
+    "label": "Validation",
+    "icon": "check",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "auth",
+    "label": "Authentication",
+    "icon": "shield",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "json",
+    "label": "Local JSON Content",
+    "icon": "json",
+    "color": "#f5de19"
+  },
+  {
+    "id": "prisma",
+    "label": "Prisma",
+    "icon": "prisma",
+    "color": "#ffffff"
+  },
+  {
+    "id": "eslint",
+    "label": "ESLint",
+    "icon": "eslint",
+    "color": "#4b32c3"
+  },
+  {
+    "id": "vitest",
+    "label": "Vitest",
+    "icon": "vitest",
+    "color": "#6e9f18"
+  },
+  {
+    "id": "playwright",
+    "label": "Playwright",
+    "icon": "playwright",
+    "color": "#45ba4b"
+  },
+  {
+    "id": "public-api",
+    "label": "Public API",
+    "icon": "api",
+    "color": "#9cc8b1"
+  },
+  {
+    "id": "local-storage",
+    "label": "Local Storage",
+    "icon": "database",
+    "color": "#9cc8b1"
+  }
+]

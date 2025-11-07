@@ -1,4 +1,65 @@
 {
-  "focusAreas": [],
-  "groups": []
+  "focusAreas": [
+    {
+      "title": "Interface composition",
+      "body": "복잡한 기능을 한 화면에서 읽히는 정보 구조, 카드, 지도, 상세 패널, 상태 요약으로 재구성합니다."
+    },
+    {
+      "title": "Case study storytelling",
+      "body": "문제, 해결, 구조, 검증, 제한 사항을 분리해 채용자가 화면과 구현 근거를 빠르게 비교할 수 있게 만듭니다."
+    },
+    {
+      "title": "Full-stack product",
+      "body": "Next.js, Spring Boot, PostgreSQL, Redis, Docker로 실시간 플랫폼과 제품형 웹 앱을 구성합니다."
+    },
+    {
+      "title": "Verification habit",
+      "body": "브라우저 스모크, Playwright, Vitest, Docker 실행 경로를 남겨 디자인 변경도 실제 동작과 함께 확인합니다."
+    }
+  ],
+  "groups": [
+    {
+      "title": "Languages",
+      "items": [
+        "c",
+        "cpp",
+        "typescript",
+        "java"
+      ]
+    },
+    {
+      "title": "Frameworks",
+      "items": [
+        "nextjs",
+        "react",
+        "tailwind",
+        "spring"
+      ]
+    },
+    {
+      "title": "Tools & Runtime",
+      "items": [
+        "make",
+        "cmake",
+        "docker",
+        "unix",
+        "linux",
+        "postgresql",
+        "redis"
+      ]
+    },
+    {
+      "title": "Systems Topics",
+      "items": [
+        "parser",
+        "process-control",
+        "concurrency",
+        "networking",
+        "protocol-fixtures",
+        "algorithms",
+        "containers",
+        "graphics"
+      ]
+    }
+  ]
 }
