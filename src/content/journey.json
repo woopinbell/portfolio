@@ -1,1 +1,200 @@
-[]
+[
+  {
+    "date": "2023-01-01",
+    "endDate": null,
+    "title": "42 Seoul 입과",
+    "category": "Education",
+    "body": "42 Seoul peer-learning curriculum을 시작하며 C, Unix, 알고리즘, 협업 기반 학습 흐름을 만들었습니다.",
+    "projectId": null,
+    "sourcePath": null
+  },
+  {
+    "date": "2023-03-06",
+    "endDate": "2023-03-26",
+    "title": "C Foundation Kit",
+    "category": "Unix & C Systems",
+    "body": "String, memory, linked list helper를 직접 구현하며 C 기반 프로젝트의 공통 토대를 만들었습니다.",
+    "projectId": null,
+    "sourcePath": null
+  },
+  {
+    "date": "2023-03-28",
+    "endDate": "2023-04-13",
+    "title": "Format Printer",
+    "category": "Unix & C Systems",
+    "body": "printf 스타일 포맷 파서와 출력 조합을 구현하며 edge case 중심의 C 출력 흐름을 정리했습니다.",
+    "projectId": "format-printer",
+    "sourcePath": "~/Desktop/seungwoo/format-printer"
+  },
+  {
+    "date": "2023-04-15",
+    "endDate": "2023-04-29",
+    "title": "Line Stream Reader",
+    "category": "Unix & C Systems",
+    "body": "파일 디스크립터별 버퍼 상태와 incremental read 흐름을 다루는 line reader를 구현했습니다.",
+    "projectId": null,
+    "sourcePath": null
+  },
+  {
+    "date": "2023-05-02",
+    "endDate": "2023-05-21",
+    "title": "Linux Admin Lab",
+    "category": "Network & Infrastructure",
+    "body": "서비스 설정, 권한, 네트워크 체크리스트를 통해 Linux 운영 기본기를 프로젝트 증거로 정리했습니다.",
+    "projectId": "linux-admin",
+    "sourcePath": "~/Desktop/seungwoo/linux-admin"
+  },
+  {
+    "date": "2023-05-24",
+    "endDate": "2023-06-25",
+    "title": "Stack Sort",
+    "category": "Algorithms & Data Structures",
+    "body": "제한된 stack operation 안에서 정렬 계획과 deterministic output을 설계했습니다.",
+    "projectId": "stack-sort",
+    "sourcePath": "~/Desktop/seungwoo/stack-sort"
+  },
+  {
+    "date": "2023-06-28",
+    "endDate": "2023-07-16",
+    "title": "Unix Pipe Runner",
+    "category": "Unix & C Systems",
+    "body": "Unix pipe wiring, command execution, error handling을 작은 실행 흐름으로 분리했습니다.",
+    "projectId": null,
+    "sourcePath": null
+  },
+  {
+    "date": "2023-07-19",
+    "endDate": "2023-08-04",
+    "title": "Signal Message Bus",
+    "category": "Unix & C Systems",
+    "body": "Signal routing과 message framing을 통해 프로토콜 경계를 명시하는 연습을 했습니다.",
+    "projectId": "signal-message-bus",
+    "sourcePath": "~/Desktop/seungwoo/signal-message-bus"
+  },
+  {
+    "date": "2023-08-07",
+    "endDate": "2023-09-10",
+    "title": "Fractal Viewer",
+    "category": "Graphics & Rendering",
+    "body": "좌표 변환, 반복 제어, redraw performance를 중심으로 interactive fractal renderer를 구성했습니다.",
+    "projectId": null,
+    "sourcePath": null
+  },
+  {
+    "date": "2023-08-08",
+    "endDate": "2023-11-12",
+    "title": "Small Shell",
+    "category": "Unix & C Systems",
+    "body": "Parsing, expansion, redirection, process control, signal handling을 포함한 Unix shell 흐름을 구현했습니다.",
+    "projectId": "small-shell",
+    "sourcePath": "~/Desktop/seungwoo/small-shell"
+  },
+  {
+    "date": "2023-09-13",
+    "endDate": "2023-10-09",
+    "title": "Thread Dining Lab",
+    "category": "Unix & C Systems",
+    "body": "Thread lifecycle, mutex coordination, timing, starvation avoidance를 관찰 가능한 구조로 다뤘습니다.",
+    "projectId": "thread-dining",
+    "sourcePath": "~/Desktop/seungwoo/thread-dining"
+  },
+  {
+    "date": "2023-10-11",
+    "endDate": "2023-10-29",
+    "title": "Network Routing Notes",
+    "category": "Network & Infrastructure",
+    "body": "Routing concepts, diagrams, verification thinking을 정리해 네트워크 학습 흐름을 문서화했습니다.",
+    "projectId": "network-routing-notes",
+    "sourcePath": "~/Desktop/seungwoo/network-routing-notes"
+  },
+  {
+    "date": "2023-11-14",
+    "endDate": "2023-12-17",
+    "title": "C++ Foundation Track",
+    "category": "C++ & Containers",
+    "body": "Object lifetime, canonical classes, inheritance, polymorphism을 C++ 학습 트랙으로 정리했습니다.",
+    "projectId": null,
+    "sourcePath": null
+  },
+  {
+    "date": "2023-12-06",
+    "endDate": "2024-02-25",
+    "title": "Ray Scene Tracer",
+    "category": "Graphics & Rendering",
+    "body": "Scene parsing, camera math, intersections, lighting을 연결해 renderer 구현 근거를 남겼습니다.",
+    "projectId": "ray-scene-tracer",
+    "sourcePath": "~/Desktop/seungwoo/ray-scene-tracer"
+  },
+  {
+    "date": "2023-12-20",
+    "endDate": "2024-01-28",
+    "title": "C++ Advanced Track",
+    "category": "C++ & Containers",
+    "body": "Templates, containers, exceptions, casts를 중심으로 C++ 추상화와 tradeoff를 다뤘습니다.",
+    "projectId": null,
+    "sourcePath": null
+  },
+  {
+    "date": "2024-02-28",
+    "endDate": "2024-04-08",
+    "title": "STL Container",
+    "category": "Algorithms & Data Structures",
+    "body": "STL-like behavior, iterators, adapters, compatibility expectations를 container lab으로 검증했습니다.",
+    "projectId": "stl-container",
+    "sourcePath": "~/Desktop/seungwoo/stl-container"
+  },
+  {
+    "date": "2024-04-08",
+    "endDate": "2024-07-21",
+    "title": "IRC Relay Server",
+    "category": "Network & Infrastructure",
+    "body": "Sockets, command parsing, channel state, client coordination을 포함한 IRC-style server를 구현했습니다.",
+    "projectId": "irc-relay-server",
+    "sourcePath": "~/Desktop/seungwoo/irc-relay-server"
+  },
+  {
+    "date": "2024-07-24",
+    "endDate": "2024-09-13",
+    "title": "Container Stack Lab",
+    "category": "C++ & Containers",
+    "body": "Container-oriented service setup, command workflows, reproducible local environment를 정리했습니다.",
+    "projectId": "container-stack",
+    "sourcePath": "~/Desktop/seungwoo/container-stack"
+  },
+  {
+    "date": "2024-08-05",
+    "endDate": "2024-11-04",
+    "title": "Pong Pong Realtime MVP",
+    "category": "Realtime Product",
+    "body": "Realtime Pong matchmaking MVP with server-authoritative game state, WebSocket lobby, tournaments, and full local Docker stack.",
+    "projectId": "pong-pong",
+    "sourcePath": "~/Desktop/seungwoo/pong-pong"
+  },
+  {
+    "date": "2026-05-05",
+    "endDate": "2026-05-08",
+    "title": "Portfolio Site",
+    "category": "Portfolio System",
+    "body": "Next.js portfolio를 콘텐츠 registry, case study presentation, responsive visual system으로 정리했습니다.",
+    "projectId": "portfolio-site",
+    "sourcePath": "~/Desktop/seungwoo/portfolio-site"
+  },
+  {
+    "date": "2026-05-07",
+    "endDate": "2026-05-07",
+    "title": "Backend Reliability Training",
+    "category": "Backend Training",
+    "body": "Backend reliability drills covering idempotency keys, transaction races, retries, cache invalidation, outbox, and failure injection with Spring Boot and a Go supplement.",
+    "projectId": "backend-reliability-training",
+    "sourcePath": "~/Desktop/seungwoo/backend-reliability-training"
+  },
+  {
+    "date": "2024-11-01",
+    "endDate": null,
+    "title": "Backend Foundations Training",
+    "category": "Backend Training",
+    "body": "Spring spine, capstone branches, and Go sub-track teaching HTTP JSON, persistence, test slices, session auth, pagination, multipart upload, and PostgreSQL bridge work as prerequisites for reliability drills.",
+    "projectId": "backend-foundations-training",
+    "sourcePath": "~/Desktop/seungwoo/backend-foundations-training"
+  }
+]

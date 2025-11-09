@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "period": "2026",
+    "title": "Project-based web development",
+    "body": "실무 경력 대신 공개 가능한 프로젝트를 중심으로 화면, 데이터, 배포, 검증 근거를 정리하고 있습니다."
+  },
+  {
+    "period": "42 Seoul",
+    "title": "Peer-learning software training",
+    "body": "C, Unix, 알고리즘, 시스템 프로그래밍, 협업 프로젝트를 중심으로 문제 해결과 코드 리뷰 습관을 쌓았습니다."
+  },
+  {
+    "period": "Ongoing",
+    "title": "Portfolio as evidence",
+    "body": "프로젝트 설명을 컴포넌트에 하드코딩하지 않고, JSON 콘텐츠와 스크린샷을 통해 계속 갱신 가능한 구조로 관리합니다."
+  }
+]
