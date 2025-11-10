@@ -1,1 +1,151 @@
-[]
+[
+  {
+    "id": "portfolio-site",
+    "order": "02",
+    "title": "Portfolio Site",
+    "category": "Portfolio System",
+    "featured": true,
+    "enabled": true,
+    "period": "2026",
+    "role": "Content system, case study presentation, and visual polish",
+    "summary": "The current Next.js portfolio system, upgraded to present product UI, engineering evidence, and a complete project archive.",
+    "description": "프로젝트 목록을 직접 코드에 흩뿌리지 않고 JSON content registry, reusable components, case study routes, screenshot assets, tests로 관리하는 포트폴리오 자체 프로젝트입니다.",
+    "deployment": {
+      "status": "case-study-only",
+      "label": "This site",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/portfolio-site/cover.svg",
+      "alt": "Portfolio Site editorial case study preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/portfolio-site/cover.svg",
+        "alt": "Portfolio Site homepage, project index, and case study preview"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "react",
+      "typescript",
+      "tailwind",
+      "vitest",
+      "playwright"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/portfolio-site",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Content-driven project registry for full work history",
+      "Case study routes for design decisions, architecture, tradeoffs, and results",
+      "Responsive homepage, projects index, resume sync, and browser verification"
+    ],
+    "problem": "주니어 포트폴리오는 프로젝트 수가 많아질수록 핵심 제품형 작업과 학습형 작업이 섞여 첫인상이 흐려질 수 있습니다.",
+    "solution": "대표 case study를 먼저 보여주고, 42/훈련/풀스택 작업은 구조화된 archive로 정리해 깊이와 가독성을 동시에 유지했습니다.",
+    "architecture": {
+      "summary": "Next.js App Router, JSON content files, shared presentation components, image assets, unit tests, Playwright tests를 사용해 포트폴리오를 수정 가능한 제품처럼 관리합니다.",
+      "items": [
+        "Content files own profile, skills, projects, links, resume, and contact data.",
+        "Reusable cards, screenshots, links, stack chips, reveal motion, and site shell keep UI consistent.",
+        "Tests verify navigation, content helpers, live demo fallback, source-only behavior, and rendered home sections."
+      ]
+    },
+    "decisions": [
+      "첫 화면은 개발자 소개보다 대표 제품 화면과 case study 진입을 더 크게 보여주도록 조정했습니다.",
+      "작업 전체 목록은 Projects 페이지에서 category group으로 분리해 채용자가 필요한 깊이만 선택하게 했습니다.",
+      "포트폴리오 자체도 프로젝트로 등록해 콘텐츠 시스템과 디자인 개선 과정을 검토할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "모든 프로젝트를 동일한 깊이로 설명하지 않고 대표 작업과 archive 작업의 밀도를 다르게 처리합니다.",
+      "외부 배포 링크가 없는 작업은 무리한 demo 버튼 대신 case study와 source-first 설명으로 남깁니다."
+    ],
+    "results": [
+      "The portfolio now covers the user's full project history without forcing every item into the same visual weight.",
+      "The homepage presents design-centered evidence before lower-level implementation archives.",
+      "Content updates stay testable because projects, resume entries, and links share the same registry."
+    ]
+  },
+  {
+    "id": "pong-pong",
+    "order": "03",
+    "title": "Pong Pong Realtime MVP",
+    "category": "Realtime Product",
+    "featured": true,
+    "enabled": true,
+    "period": "2024",
+    "role": "Realtime API, web client, and matchmaking flow",
+    "summary": "A realtime Pong matchmaking MVP with server-authoritative game state, WebSocket lobby, tournaments, and full local Docker stack.",
+    "description": "pnpm workspace 위에 Next.js 웹, Fastify API, 공유 타입 패키지, PostgreSQL 데이터 패키지를 두고 Docker Compose와 Caddy로 로컬 실행 경로를 제공하는 실시간 Pong 매칭 MVP입니다.",
+    "deployment": {
+      "status": "case-study-only",
+      "label": "Case study",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/pong-pong/cover.svg",
+      "alt": "Pong Pong realtime lobby and match preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/pong-pong/cover.svg",
+        "alt": "Pong Pong lobby, queue, server-authoritative match, and tournament bracket preview"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "react",
+      "typescript",
+      "nodejs",
+      "postgresql",
+      "docker",
+      "playwright",
+      "vitest"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/pong-pong",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Server-authoritative 960x540 board with 20 tick rate, ball acceleration, and AI/NPC opponents",
+      "WebSocket queue, ready, input, chat, pause/resume events handled in a single Fastify gateway",
+      "Tournament bracket, friend graph, leaderboard, and operator ban/unban audit log built on the same session model"
+    ],
+    "problem": "실시간 게임은 단일 화면만 구현해도 입력 동기화, 권위 모델, 매칭, 토너먼트, 운영 로그까지 책임이 흩어집니다.",
+    "solution": "GameHub가 서버에서 권위 있는 경기 상태를 관리하고, Next.js 클라이언트는 WebSocket 이벤트로 입력과 화면 갱신만 담당하도록 책임을 분리했습니다. pnpm workspace로 web/api/shared/db를 한 저장소에 두고 같은 zod schema를 양쪽에서 사용합니다.",
+    "architecture": {
+      "summary": "Web(Next.js App Router), API(Fastify + WebSocket), shared(zod 타입), db(Kysely + PostgreSQL) 4개의 workspace 패키지를 Docker Compose + Caddy로 묶어 한 명령으로 띄울 수 있게 구성했습니다.",
+      "items": [
+        "Fastify gateway hosts /auth, /me, lobby HTTP, and the realtime WebSocket channel on the same process.",
+        "GameHub owns the canonical match state, applies inputs at 20 tick rate, and emits authoritative snapshots to both players.",
+        "Next.js client renders Canvas 2D from server snapshots and uses WebSocket events for queue, chat, and tournament flows.",
+        "Kysely + PostgreSQL stores users, sessions, matches, friend graph, tournaments, and audit logs with SQL migrations."
+      ]
+    },
+    "decisions": [
+      "클라이언트가 게임 상태를 추정하지 않도록 server-authoritative 모델을 선택해 동기화 버그 표면을 줄였습니다.",
+      "WebSocket과 HTTP API를 동일 Fastify 프로세스에서 호스팅해 session/auth 경계를 한 곳에서 통제합니다.",
+      "운영 audit log와 ban/unban 흐름을 일반 사용자 기능과 같은 schema 위에 두어 권한과 추적성을 단순화했습니다."
+    ],
+    "tradeoffs": [
+      "Server-authoritative 모델은 인풋 지연이 누적될 수 있어 20 tick rate와 ball acceleration 정책으로 균형을 맞췄습니다.",
+      "단일 Fastify 프로세스는 수평 확장 시 sticky session이나 메시지 버스가 필요하지만, MVP 범위에서는 의도적으로 미루었습니다."
+    ],
+    "results": [
+      "Realtime lobby, queue, match, tournament, and operator flows run end-to-end on a single docker compose up.",
+      "Vitest unit/integration tests, Node smoke scripts, and Playwright desktop/mobile suites cover the auth, lobby, match, and tournament paths.",
+      "Portfolio case study presents the project as a realtime product surface rather than a documentation archive."
+    ]
+  }
+]
