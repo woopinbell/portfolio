@@ -147,5 +147,153 @@
       "Vitest unit/integration tests, Node smoke scripts, and Playwright desktop/mobile suites cover the auth, lobby, match, and tournament paths.",
       "Portfolio case study presents the project as a realtime product surface rather than a documentation archive."
     ]
+  },
+  {
+    "id": "backend-foundations-training",
+    "order": "04",
+    "title": "Backend Foundations Training",
+    "category": "Backend Training",
+    "featured": false,
+    "enabled": true,
+    "period": "2024-2025",
+    "role": "Curriculum design and exercise authoring",
+    "summary": "Independent prerequisite repository teaching backend implementation foundations before the reliability curriculum.",
+    "description": "Spring Boot 메인 트랙과 Go 표준 라이브러리 sub-track으로 HTTP JSON, CRUD, validation, persistence, test slice, session auth, pagination, multipart upload, PostgreSQL bridge, 작은 백그라운드 잡까지의 기초를 다루는 학습용 저장소입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/backend-foundations-training/cover.svg",
+      "alt": "Backend Foundations Training curriculum preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/backend-foundations-training/cover.svg",
+        "alt": "Spring spine, branches, bridge, and Go sub-track curriculum preview"
+      }
+    ],
+    "stack": [
+      "java",
+      "spring",
+      "go",
+      "postgresql",
+      "gradle",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/backend-foundations-training",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Spring spine of HTTP JSON, validation, persistence, and test slices as the primary learning path",
+      "Branch capstones that transfer the same basics to new domains",
+      "Go sub-track restating the same ideas with the standard library only"
+    ],
+    "problem": "reliability 훈련에 바로 들어가려면 HTTP, persistence, test slice, session 같은 product-building 기본기가 먼저 단단해야 하는데, 일반 Java 강의는 그 범위를 좁게 잡거나 너무 넓게 흩어집니다.",
+    "solution": "Spring main에 spine/branches/bridge 구조를 두어 핵심 흐름과 응용을 분리하고, Go sub-track으로 같은 개념을 표준 라이브러리로 다시 풀어 비교 학습 경로를 만들었습니다.",
+    "architecture": {
+      "summary": "spring-main(spine, branches, bridge)과 go-sub(spine)을 monorepo로 두고 scripts/checkdocs로 exercise README 형식을 검증합니다.",
+      "items": [
+        "Spring spine covers HTTP JSON, validation, JPA, session auth, pagination, multipart upload, and PostgreSQL profile bridge.",
+        "Branch capstones extend the spine into board, commerce, and task-dashboard domains.",
+        "Go sub-track demonstrates the same concepts with the standard library to highlight where Spring abstractions earn their weight.",
+        "Make targets bundle Spring + Go test runs and a docs format check."
+      ]
+    },
+    "decisions": [
+      "reliability 훈련 전 단계로 product-building 기본기를 분리하기 위해 별도 저장소로 두었습니다.",
+      "Spring spine을 주 학습 경로로 두되 Go sub-track을 두어 추상화 비용/이득을 비교할 수 있게 했습니다.",
+      "scripts/checkdocs로 exercise 문서 형식을 강제해 학습 진입 동선을 일관되게 유지합니다."
+    ],
+    "tradeoffs": [
+      "한 저장소에 두 언어를 두면 빌드/툴 셋업이 무거워지지만, 비교 학습 효과로 그 비용을 받습니다.",
+      "Spring과 Go의 같은 개념을 모두 채우다 보니 exercise 수가 늘어, branch 캡스톤에서만 적용 범위를 좁혔습니다."
+    ],
+    "results": [
+      "Make test pipelines run Spring + Go suites and a docs format check in a single entry point.",
+      "Curriculum is structured so a learner can move directly into the reliability training repository after completing it."
+    ]
+  },
+  {
+    "id": "backend-reliability-training",
+    "order": "06",
+    "title": "Backend Reliability Training",
+    "category": "Backend Training",
+    "featured": false,
+    "enabled": true,
+    "period": "2025",
+    "role": "Reliability drill design and exercise authoring",
+    "summary": "Backend reliability training across idempotency, transaction races, rate limiting, retries, observability, and failure injection with Spring Boot and a Go supplement.",
+    "description": "Java 21, Spring Boot 3, Go 표준 라이브러리로 구성된 backend reliability 훈련 저장소입니다. essential, advanced, sre, domain 트랙과 go-sub 비교 트랙으로 idempotency, transaction races, cursor pagination, rate limit, job retry, cache invalidation, outbox, observability, failure injection을 다룹니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/backend-reliability-training/cover.svg",
+      "alt": "Backend Reliability Training tracks preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/backend-reliability-training/cover.svg",
+        "alt": "Essential, advanced, SRE, domain, and Go supplement track preview"
+      }
+    ],
+    "stack": [
+      "java",
+      "spring",
+      "go",
+      "postgresql",
+      "gradle",
+      "make",
+      "docker"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/backend-reliability-training",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Essential track of signup invariants, idempotency keys, transaction races, cursor pagination, rate limiting, and job retry",
+      "Advanced and SRE tracks covering cache invalidation, outbox, observability tracing, failure injection, and chaos drills",
+      "Go sub-track restating the same ideas with the standard library only"
+    ],
+    "problem": "백엔드 reliability는 제품 구현만으로는 표면에 드러나지 않는 idempotency, transaction race, cache invalidation, failure injection 같은 영역에서 결정의 깊이가 갈립니다.",
+    "solution": "essential→advanced→sre→domain의 4단계 트랙으로 reliability 결정 영역을 좁힌 exercise로 분리하고, Go sub-track으로 같은 문제를 standard library로 다시 푸는 비교 학습 경로를 두었습니다.",
+    "architecture": {
+      "summary": "spring-main 안에 essential/advanced/sre/domain 4개 디렉터리를 두고, go-sub에 그에 대응하는 standard-library 구현을 두어 같은 문제의 두 접근을 같은 저장소에서 비교합니다.",
+      "items": [
+        "Essential exercises focus on signup invariants, idempotency, transaction races, cursor pagination, rate limit, and job retry.",
+        "Advanced exercises cover cache invalidation, outbox publishing, authorization policy, file upload safety, observability tracing, and failure injection.",
+        "SRE exercises practice load testing, chaos drills, slow dependency timeouts, and trace-to-on-call alert handling.",
+        "Domain exercises bring saga compensation, event sourcing, CQRS projection, multi-region failover, and bulkheads into the spring track.",
+        "Go sub-track focuses on rate limiters, worker pools, HTTP timeouts, and idempotency keys with standard-library only."
+      ]
+    },
+    "decisions": [
+      "essential→advanced→sre→domain 4단 진행으로 reliability 결정 깊이를 단계별로 노출했습니다.",
+      "각 exercise는 problem, contract, run command, passing criteria를 README에 명시해 자동 검증과 자기 검증이 일치하도록 했습니다.",
+      "Go sub-track은 같은 문제의 standard-library 구현을 보여주어 Spring 추상화의 비용/이득을 비교할 수 있게 합니다."
+    ],
+    "tradeoffs": [
+      "Optional Docker-backed 시나리오를 두면 setup이 무거워지므로 deterministic local test를 기본으로 두고 Docker는 부가로 분리했습니다.",
+      "exercise 수가 많아 spine 흐름이 흐려질 수 있어, 트랙별 디렉터리와 README 형식 규칙을 일관되게 유지합니다."
+    ],
+    "results": [
+      "make test, make test-spring, make test-go targets give a single entry point across the tracks.",
+      "Each exercise can be inspected individually via make test-spring-exercise EX=... or test-go-exercise EX=... for focused regression checks."
+    ]
   }
 ]
