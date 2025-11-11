@@ -295,5 +295,288 @@
       "make test, make test-spring, make test-go targets give a single entry point across the tracks.",
       "Each exercise can be inspected individually via make test-spring-exercise EX=... or test-go-exercise EX=... for focused regression checks."
     ]
+  },
+  {
+    "id": "small-shell",
+    "order": "10",
+    "title": "Small Shell",
+    "category": "Unix & C Systems",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Parser, expansion, and process execution",
+    "summary": "A Unix shell implementation focused on parsing, expansion, process control, redirection, and signals.",
+    "description": "파싱, 확장, 리다이렉션, 파이프, 시그널, 프로세스 실행 흐름을 직접 다루는 셸 구현 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/small-shell/cover.svg",
+      "alt": "Small Shell technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/small-shell/cover.svg",
+        "alt": "Small Shell technical preview"
+      }
+    ],
+    "stack": [
+      "c",
+      "unix",
+      "parser",
+      "process-control",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/small-shell",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Command parsing and expansion path",
+      "Pipe and redirection execution flow",
+      "Signal-aware interactive behavior"
+    ],
+    "problem": "셸은 문자열 처리처럼 보이지만 실제로는 파서, 프로세스, 파일 디스크립터, 시그널이 같은 흐름에서 맞아야 합니다.",
+    "solution": "입력 분석부터 실행 계획, 프로세스 생성, 리다이렉션 적용까지 단계를 나눠 테스트 가능한 구조로 정리했습니다.",
+    "architecture": {
+      "summary": "Small Shell는 parser, expansion, and process execution 관점으로 작은 단위의 책임을 나누고, 실행 가능한 소스 중심 증거를 남기는 방식으로 구성했습니다.",
+      "items": [
+        "Parser normalizes command structure before execution.",
+        "Executor owns fork, pipe, redirect, and wait behavior.",
+        "Signal handling is isolated from display and parsing concerns."
+      ]
+    },
+    "decisions": [
+      "웹 데모를 억지로 붙이지 않고 Source only 상태로 분리했습니다.",
+      "프로젝트 성격이 한눈에 보이도록 카테고리, 역할, 핵심 스택을 먼저 노출합니다.",
+      "상세 페이지에서는 문제, 해결 방향, 구조, 트레이드오프를 같은 포맷으로 비교할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "로컬 소스 중심 프로젝트라 브라우저에서 바로 체험하는 흐름은 제한적입니다.",
+      "19개를 모두 같은 크기의 카드로만 보여주면 밀도가 높아져, 목록 페이지에서는 트랙별 그룹으로 스캔하게 했습니다."
+    ],
+    "results": [
+      "Portfolio entry is available as an individual case-study route.",
+      "GitHub link is intentionally omitted until the public repository URL is ready."
+    ]
+  },
+  {
+    "id": "thread-dining",
+    "order": "11",
+    "title": "Thread Dining Lab",
+    "category": "Unix & C Systems",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Concurrency and timing model",
+    "summary": "A concurrency lab around thread lifecycle, mutex coordination, timing, and starvation avoidance.",
+    "description": "스레드, mutex, 시간 제한, 종료 조건을 직접 설계하며 동시성 문제를 관찰하는 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/thread-dining/cover.svg",
+      "alt": "Thread Dining Lab technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/thread-dining/cover.svg",
+        "alt": "Thread Dining Lab technical preview"
+      }
+    ],
+    "stack": [
+      "c",
+      "concurrency",
+      "unix",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/thread-dining",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Thread lifecycle coordination",
+      "Mutex-protected shared state",
+      "Timing and starvation checks"
+    ],
+    "problem": "동시성 코드는 정상 실행보다 경쟁 상태, 종료 순서, 시간 측정의 작은 흔들림을 통제하는 것이 어렵습니다.",
+    "solution": "공유 상태 접근을 제한하고, 관찰 루프와 작업 루프를 분리해 종료 조건과 시간 조건을 추적하게 했습니다.",
+    "architecture": {
+      "summary": "Thread Dining Lab는 concurrency and timing model 관점으로 작은 단위의 책임을 나누고, 실행 가능한 소스 중심 증거를 남기는 방식으로 구성했습니다.",
+      "items": [
+        "Worker threads model concurrent actors.",
+        "Shared state is guarded through mutex boundaries.",
+        "Monitor logic tracks timeout and completion conditions."
+      ]
+    },
+    "decisions": [
+      "웹 데모를 억지로 붙이지 않고 Source only 상태로 분리했습니다.",
+      "프로젝트 성격이 한눈에 보이도록 카테고리, 역할, 핵심 스택을 먼저 노출합니다.",
+      "상세 페이지에서는 문제, 해결 방향, 구조, 트레이드오프를 같은 포맷으로 비교할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "로컬 소스 중심 프로젝트라 브라우저에서 바로 체험하는 흐름은 제한적입니다.",
+      "19개를 모두 같은 크기의 카드로만 보여주면 밀도가 높아져, 목록 페이지에서는 트랙별 그룹으로 스캔하게 했습니다."
+    ],
+    "results": [
+      "Portfolio entry is available as an individual case-study route.",
+      "GitHub link is intentionally omitted until the public repository URL is ready."
+    ]
+  },
+  {
+    "id": "format-printer",
+    "order": "12",
+    "title": "Format Printer",
+    "category": "Unix & C Systems",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Variadic args parsing and format dispatch",
+    "summary": "A printf reimplementation in C covering width, precision, flags, and the common conversion specifiers.",
+    "description": "printf(3)의 주요 변환 지정자와 플래그를 직접 파싱해 출력하고 결과 바이트 수 또는 오류를 반환하는 ft_printf 라이브러리 구현 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/format-printer/cover.svg",
+      "alt": "Format Printer technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/format-printer/cover.svg",
+        "alt": "ft_printf format parsing and conversion dispatch preview"
+      }
+    ],
+    "stack": [
+      "c",
+      "variadic",
+      "parser",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/format-printer",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Public API int ft_printf(const char *format, ...) producing libftprintf.a",
+      "%c, %s, %p, %d, %i, %u, %x, %X, %% conversions with -, 0, ., width, #, space, + flags",
+      "snprintf 기준 비교 테스트 하네스로 결과를 검증"
+    ],
+    "problem": "printf는 표준 라이브러리에서 가장 자주 쓰이지만, 그 내부는 variadic args 처리·format specifier parser·conversion dispatch·write 실패 처리 흐름으로 나뉜 작은 시스템입니다.",
+    "solution": "format 문자열을 토큰화해 width/precision/flags/conversion으로 분해하고, 각 conversion을 별도 함수로 분리해 write(2) 호출과 errno 처리를 일관되게 두었습니다.",
+    "architecture": {
+      "summary": "format 토크나이저, conversion dispatcher, 수치·문자열·포인터 출력 helpers, write 실패 처리 layer로 분리된 모듈 구성입니다.",
+      "items": [
+        "va_list-based variadic argument consumption with per-conversion type retrieval.",
+        "Format specifier parser collects flags, width, precision before dispatching to conversion handlers.",
+        "Numeric helpers handle signed/unsigned/hex with width, padding, sign, and prefix policy.",
+        "Write layer tracks total bytes and returns -1 if write(2) reports failure."
+      ]
+    },
+    "decisions": [
+      "conversion별 함수 분리로 unit test 표면을 좁히고 책임을 분리했습니다.",
+      "write(2) 실패 시 -1을 반환하는 표준 인터페이스 계약을 그대로 따랐습니다.",
+      "NULL 문자열은 (null), 포인터는 0x 접두사 같은 glibc 관례를 명시적으로 선택했습니다."
+    ],
+    "tradeoffs": [
+      "32-bit/64-bit 포인터 크기 차이를 다루기 위해 길이 변환 helper를 따로 두었습니다.",
+      "Floating point conversion(%f)은 범위 밖이라 다루지 않습니다."
+    ],
+    "results": [
+      "libftprintf.a is built and verified against snprintf in the test harness.",
+      "Variadic args, format specifier parsing, and conversion dispatch are isolated for individual inspection."
+    ]
+  },
+  {
+    "id": "signal-message-bus",
+    "order": "13",
+    "title": "Signal Message Bus",
+    "category": "Unix & C Systems",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Signal-based IPC client/server",
+    "summary": "A minitalk-style client/server in C that transports strings between processes using only SIGUSR1 and SIGUSR2 as bit values.",
+    "description": "SIGUSR1과 SIGUSR2를 0/1 비트 신호로 사용해 클라이언트가 서버 프로세스에 문자열을 비트 단위로 전송하는 signal 기반 IPC 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/signal-message-bus/cover.svg",
+      "alt": "Signal Message Bus technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/signal-message-bus/cover.svg",
+        "alt": "minitalk client/server bit-by-bit signal IPC preview"
+      }
+    ],
+    "stack": [
+      "c",
+      "posix-signal",
+      "ipc",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/signal-message-bus",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "SIGUSR1 as 0 bit and SIGUSR2 as 1 bit with NUL byte as message terminator",
+      "Per-bit ACK with timeout, concurrent sender rejection while a transfer is in flight",
+      "Empty, long, consecutive, and UTF-8 byte stream messages covered by shell smoke tests"
+    ],
+    "problem": "Signal은 일반적으로 비동기 알림용입니다. signal만으로 임의 길이의 문자열을 안정적으로 전달하려면 비트 인코딩, ACK 흐름, async-safety, 경쟁 sender 처리를 모두 직접 다뤄야 합니다.",
+    "solution": "0/1 비트로 두 signal을 매핑하고 NUL로 메시지를 끝내며, 비트마다 ACK을 받고 timeout으로 손실을 감지합니다. 전송 중인 클라이언트가 있으면 새 sender는 거절합니다.",
+    "architecture": {
+      "summary": "server는 signal handler에서 bit 누적·byte 완성·ACK 반환을 처리하고, client는 char 단위로 비트를 송신하며 ACK 수신 후 다음 bit으로 진행합니다.",
+      "items": [
+        "Server signal handler is async-signal-safe: only sets sig_atomic_t flags and writes via write(2).",
+        "Client sends each bit and waits for the per-bit ACK before progressing to the next bit.",
+        "NUL byte indicates end-of-message; the server resets per-sender state and accepts a new transfer.",
+        "Concurrent sender attempts are rejected while a transfer is in flight to prevent interleaving."
+      ]
+    },
+    "decisions": [
+      "비트당 ACK으로 손실을 즉시 감지해 retry/timeout 정책을 단순화했습니다.",
+      "Signal handler 안에서 async-signal-safe 함수만 사용하도록 코드 경계를 제한했습니다.",
+      "Concurrent sender를 거절하는 정책으로 전송 흐름의 결정성을 우선했습니다."
+    ],
+    "tradeoffs": [
+      "Signal-only 채널은 throughput이 매우 낮습니다. 큰 메시지는 사용 사례가 제한됩니다.",
+      "Per-bit ACK timeout을 짧게 두면 손실에 민감하고, 길게 두면 stall이 길어집니다. 워크로드별로 조정합니다."
+    ],
+    "results": [
+      "Server and client binaries communicate strings end-to-end via signals only.",
+      "Shell smoke tests cover empty, long, consecutive, and UTF-8 message scenarios."
+    ]
   }
 ]
