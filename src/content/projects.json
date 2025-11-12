@@ -578,5 +578,145 @@
       "Server and client binaries communicate strings end-to-end via signals only.",
       "Shell smoke tests cover empty, long, consecutive, and UTF-8 message scenarios."
     ]
+  },
+  {
+    "id": "ray-scene-tracer",
+    "order": "14",
+    "title": "Ray Scene Tracer",
+    "category": "Graphics & Rendering",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Rendering pipeline and scene parser",
+    "summary": "A ray tracing project focused on scene parsing, camera math, intersections, lighting, and rendered output.",
+    "description": "씬 파일을 읽고 카메라, 교차 판정, 조명 계산을 거쳐 이미지를 생성하는 렌더링 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/ray-scene-tracer/cover.svg",
+      "alt": "Ray Scene Tracer technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/ray-scene-tracer/cover.svg",
+        "alt": "Ray Scene Tracer technical preview"
+      }
+    ],
+    "stack": [
+      "c",
+      "graphics",
+      "parser",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/ray-scene-tracer",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Scene description parsing",
+      "Intersection and lighting model",
+      "Camera and viewport math"
+    ],
+    "problem": "레이 트레이서는 수학, 자료 구조, 파싱, 픽셀 출력이 모두 맞아야 결과 이미지가 안정적으로 나옵니다.",
+    "solution": "씬 파싱, 객체 교차, 조명 계산, 이미지 출력을 독립 단계로 나눠 렌더링 흐름을 추적 가능하게 만들었습니다.",
+    "architecture": {
+      "summary": "Ray Scene Tracer는 rendering pipeline and scene parser 관점으로 작은 단위의 책임을 나누고, 실행 가능한 소스 중심 증거를 남기는 방식으로 구성했습니다.",
+      "items": [
+        "Scene parser converts text input into renderable objects.",
+        "Intersection routines own geometry-specific hit tests.",
+        "Renderer combines camera rays, lighting, and output buffers."
+      ]
+    },
+    "decisions": [
+      "웹 데모를 억지로 붙이지 않고 Source only 상태로 분리했습니다.",
+      "프로젝트 성격이 한눈에 보이도록 카테고리, 역할, 핵심 스택을 먼저 노출합니다.",
+      "상세 페이지에서는 문제, 해결 방향, 구조, 트레이드오프를 같은 포맷으로 비교할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "로컬 소스 중심 프로젝트라 브라우저에서 바로 체험하는 흐름은 제한적입니다.",
+      "19개를 모두 같은 크기의 카드로만 보여주면 밀도가 높아져, 목록 페이지에서는 트랙별 그룹으로 스캔하게 했습니다."
+    ],
+    "results": [
+      "Portfolio entry is available as an individual case-study route.",
+      "GitHub link is intentionally omitted until the public repository URL is ready."
+    ]
+  },
+  {
+    "id": "container-stack",
+    "order": "15",
+    "title": "Container Stack Lab",
+    "category": "C++ & Containers",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Containerized service and systems practice",
+    "summary": "A lab for container-oriented service setup, command workflows, and reproducible local environments.",
+    "description": "컨테이너 기반 실행 환경과 서비스 구성을 재현 가능한 로컬 워크플로로 다루는 인프라 실습 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/container-stack/cover.svg",
+      "alt": "Container Stack Lab technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/container-stack/cover.svg",
+        "alt": "Container Stack Lab technical preview"
+      }
+    ],
+    "stack": [
+      "docker",
+      "linux",
+      "networking",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/container-stack",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Container runtime workflow",
+      "Service configuration practice",
+      "Reproducible local environment"
+    ],
+    "problem": "로컬에서만 맞는 환경은 검토와 재현이 어렵고, 서비스 경계가 늘어날수록 설정 일관성이 중요해집니다.",
+    "solution": "컨테이너와 Makefile 기반 명령을 통해 실행 경로를 표준화하고 환경 구성을 문서화했습니다.",
+    "architecture": {
+      "summary": "Container Stack Lab는 containerized service and systems practice 관점으로 작은 단위의 책임을 나누고, 실행 가능한 소스 중심 증거를 남기는 방식으로 구성했습니다.",
+      "items": [
+        "Make targets provide repeatable command entry points.",
+        "Container configuration describes runtime boundaries.",
+        "Network and volume settings remain explicit."
+      ]
+    },
+    "decisions": [
+      "웹 데모를 억지로 붙이지 않고 Source only 상태로 분리했습니다.",
+      "프로젝트 성격이 한눈에 보이도록 카테고리, 역할, 핵심 스택을 먼저 노출합니다.",
+      "상세 페이지에서는 문제, 해결 방향, 구조, 트레이드오프를 같은 포맷으로 비교할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "로컬 소스 중심 프로젝트라 브라우저에서 바로 체험하는 흐름은 제한적입니다.",
+      "19개를 모두 같은 크기의 카드로만 보여주면 밀도가 높아져, 목록 페이지에서는 트랙별 그룹으로 스캔하게 했습니다."
+    ],
+    "results": [
+      "Portfolio entry is available as an individual case-study route.",
+      "GitHub link is intentionally omitted until the public repository URL is ready."
+    ]
   }
 ]
