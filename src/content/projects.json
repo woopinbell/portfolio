@@ -928,5 +928,148 @@
       "Portfolio entry is available as an individual case-study route.",
       "GitHub link is intentionally omitted until the public repository URL is ready."
     ]
+  },
+  {
+    "id": "stack-sort",
+    "order": "19",
+    "title": "Stack Sort",
+    "category": "Algorithms & Data Structures",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Algorithm design and stack-only sort",
+    "summary": "A push_swap implementation that sorts an integer sequence using only a fixed set of stack operations, with a verifier binary that replays the moves.",
+    "description": "두 스택 사이에서 정해진 명령(sa, pa, ra, rra, ss, …)만 사용해 입력을 정렬하는 push_swap 알고리즘 구현과 명령 적용 결과를 검증하는 checker 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/stack-sort/cover.svg",
+      "alt": "Stack Sort technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/stack-sort/cover.svg",
+        "alt": "push_swap stack operations and checker verification preview"
+      }
+    ],
+    "stack": [
+      "c",
+      "algorithms",
+      "make",
+      "python-tests"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/stack-sort",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Dedicated sort routines for size 2~5 inputs; coordinate compression + radix for larger inputs",
+      "Argument tokenization, int range, duplicate detection upfront",
+      "checker binary replays move stream and reports OK/KO/Error"
+    ],
+    "problem": "정렬은 자유로운 비교 알고리즘으로는 평이하지만, 두 스택과 11개 명령만으로 O(n log n)에 가깝게 정렬하려면 입력 크기별 전략을 분리해야 합니다.",
+    "solution": "작은 입력은 전용 결정론 루틴, 큰 입력은 좌표 압축 후 radix sort 전략으로 분리해 명령 수를 제한 안으로 맞췄습니다. checker는 명령 stream을 재현해 결과를 OK/KO로 검증합니다.",
+    "architecture": {
+      "summary": "입력 파서·검증, 작은 입력 정렬 루틴, 큰 입력 radix 전략, 공통 stack 연산 layer, 명령 출력 layer, checker 실행기로 분리된 모듈 구성입니다.",
+      "items": [
+        "Argument parser collects argv tokens (incl. quoted strings) and validates int range and duplicates.",
+        "Dedicated sort routines for sizes 2~5 keep small input move counts minimal.",
+        "Coordinate compression maps values to ranks; radix-based bucket movements yield O(n log n)-ish move counts.",
+        "Common operations layer implements sa/sb/ss/pa/pb/ra/rb/rr/rra/rrb/rrr against two stacks.",
+        "checker replays move stream from stdin against the parsed input and prints OK/KO/Error."
+      ]
+    },
+    "decisions": [
+      "입력 크기별로 정렬 전략을 분리해 average move count를 작게 유지했습니다.",
+      "이미 정렬된 입력에 대해서는 명령을 출력하지 않도록 단축 경로를 두었습니다.",
+      "checker를 함께 두어 명령 stream의 정확성을 별도 binary로 검증합니다."
+    ],
+    "tradeoffs": [
+      "radix 전략은 작은 입력에서는 오버헤드가 크므로 size-based dispatch로 분리합니다.",
+      "최적해 보장은 아니라 worst-case는 grading 요구 한계 안에 두는 휴리스틱 정렬입니다."
+    ],
+    "results": [
+      "push_swap and checker binaries are built and exercised via Python test runner across input sizes.",
+      "Algorithm choice is justified by input-size dispatch and move-count constraints rather than a single universal sort."
+    ]
+  },
+  {
+    "id": "stl-container",
+    "order": "20",
+    "title": "STL Container",
+    "category": "Algorithms & Data Structures",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Container reimplementation and standard parity",
+    "summary": "A header-only C++98 reimplementation of vector, stack, and map in the ft namespace, verified against std equivalents.",
+    "description": "C++98 표준 라이브러리의 vector, stack, map과 공통 type/iterator utility를 ft namespace에 header-only로 직접 구현하고, 같은 입력에 대해 std 컨테이너와 결과를 비교 테스트하는 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/stl-container/cover.svg",
+      "alt": "STL Container technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/stl-container/cover.svg",
+        "alt": "ft::vector, ft::stack, ft::map header-only reimplementation preview"
+      }
+    ],
+    "stack": [
+      "cpp98",
+      "header-only",
+      "rbt",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/stl-container",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "ft::vector with allocator, iterator/const/reverse iterator, full capacity/access/modifier set",
+      "ft::map backed by a hand-written red-black tree with lower_bound, upper_bound, equal_range",
+      "Shared utilities: pair, make_pair, enable_if, is_integral, equal, lexicographical_compare, iterator_traits, reverse_iterator"
+    ],
+    "problem": "표준 컨테이너는 사용은 익숙하지만 내부 자료구조·iterator 카테고리·allocator 책임은 외부에서 잘 드러나지 않습니다. 그 내부를 직접 구현하지 않으면 복잡도·iterator invalidation·예외 안전 보장의 근거를 설명하기 어렵습니다.",
+    "solution": "C++98 제약 안에서 vector(연속 배열), stack(컨테이너 어댑터), map(red-black tree)을 직접 구현하고, std 컨테이너와 같은 입력에 대한 결과 비교 테스트를 두어 행위 동치를 검증합니다.",
+    "architecture": {
+      "summary": "ft::vector(dynamic array), ft::stack(컨테이너 어댑터), ft::map(red-black tree), 공통 type/iterator utility로 분리된 header-only 구성입니다.",
+      "items": [
+        "ft::vector handles allocator-aware storage, range constructors, assign/insert/erase/resize/reserve, and relational ops.",
+        "ft::stack adapts ft::vector with top/push/pop/size/empty and relational operators.",
+        "ft::map implements a red-black tree with bidirectional iterators, insert/erase/find/count, bound queries, operator[], key_comp, value_comp, and swap.",
+        "Shared utilities supply pair, make_pair, enable_if, is_integral, equal, lexicographical_compare, iterator_traits, and reverse_iterator."
+      ]
+    },
+    "decisions": [
+      "C++98 제약을 정확히 따라 호환성과 학습 범위 안에서 결정했습니다.",
+      "red-black tree를 직접 구현해 map의 균형 보장과 iterator 안정성 근거를 설명할 수 있게 했습니다.",
+      "std 컨테이너와의 비교 테스트로 행위 동치를 검증해 회귀를 좁혔습니다."
+    ],
+    "tradeoffs": [
+      "header-only 라 대형 코드베이스에서는 컴파일 시간이 늘 수 있지만, 학습용 범위에서는 단순성이 우선입니다.",
+      "C++98 안에서 작업하므로 move semantics·variadic template 같은 modern 도구는 사용하지 않습니다."
+    ],
+    "results": [
+      "ft::vector, ft::stack, ft::map provide the standard-library surface for the lab scope and match std results across the test suite.",
+      "Red-black tree internals are exposed enough to discuss balance invariants, iterator stability, and insert/erase paths in interviews."
+    ]
   }
 ]
