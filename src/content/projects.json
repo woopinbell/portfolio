@@ -718,5 +718,215 @@
       "Portfolio entry is available as an individual case-study route.",
       "GitHub link is intentionally omitted until the public repository URL is ready."
     ]
+  },
+  {
+    "id": "irc-relay-server",
+    "order": "16",
+    "title": "IRC Relay Server",
+    "category": "Network & Infrastructure",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Network protocol server implementation",
+    "summary": "An IRC-style server implementation around sockets, command parsing, channel state, and client coordination.",
+    "description": "소켓 연결, 명령 파싱, 채널 상태, 클라이언트 브로드캐스트를 다루는 IRC 스타일 네트워크 서버입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/irc-relay-server/cover.svg",
+      "alt": "IRC Relay Server technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/irc-relay-server/cover.svg",
+        "alt": "IRC Relay Server technical preview"
+      }
+    ],
+    "stack": [
+      "cpp",
+      "networking",
+      "parser",
+      "protocol-fixtures",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/irc-relay-server",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Socket server lifecycle",
+      "Protocol command parsing",
+      "Channel and client state coordination"
+    ],
+    "problem": "프로토콜 서버는 연결 관리와 메시지 파싱, 공유 상태가 동시에 움직이기 때문에 작은 상태 오류가 사용자 흐름을 깨뜨립니다.",
+    "solution": "클라이언트 세션, 명령 처리, 채널 상태를 분리해 네트워크 이벤트를 예측 가능한 서버 동작으로 변환했습니다.",
+    "architecture": {
+      "summary": "IRC Relay Server는 network protocol server implementation 관점으로 작은 단위의 책임을 나누고, 실행 가능한 소스 중심 증거를 남기는 방식으로 구성했습니다.",
+      "items": [
+        "Socket loop accepts and tracks connected clients.",
+        "Command parser normalizes IRC-style messages.",
+        "Channel registry coordinates membership and broadcast behavior."
+      ]
+    },
+    "decisions": [
+      "웹 데모를 억지로 붙이지 않고 Source only 상태로 분리했습니다.",
+      "프로젝트 성격이 한눈에 보이도록 카테고리, 역할, 핵심 스택을 먼저 노출합니다.",
+      "상세 페이지에서는 문제, 해결 방향, 구조, 트레이드오프를 같은 포맷으로 비교할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "로컬 소스 중심 프로젝트라 브라우저에서 바로 체험하는 흐름은 제한적입니다.",
+      "19개를 모두 같은 크기의 카드로만 보여주면 밀도가 높아져, 목록 페이지에서는 트랙별 그룹으로 스캔하게 했습니다."
+    ],
+    "results": [
+      "Portfolio entry is available as an individual case-study route.",
+      "GitHub link is intentionally omitted until the public repository URL is ready."
+    ]
+  },
+  {
+    "id": "linux-admin",
+    "order": "17",
+    "title": "Linux Admin Lab",
+    "category": "Network & Infrastructure",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Linux operations and service setup",
+    "summary": "A Linux administration lab for service setup, permissions, networking, and operational checklists.",
+    "description": "리눅스 서비스 운영, 권한, 네트워크 설정, 점검 절차를 실습 형태로 정리한 시스템 관리 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/linux-admin/cover.svg",
+      "alt": "Linux Admin Lab technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/linux-admin/cover.svg",
+        "alt": "Linux Admin Lab technical preview"
+      }
+    ],
+    "stack": [
+      "linux",
+      "networking",
+      "docker",
+      "make"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/linux-admin",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Service setup checklist",
+      "Permissions and networking practice",
+      "Operational command workflow"
+    ],
+    "problem": "시스템 운영 작업은 명령을 아는 것보다 재현 가능한 절차와 장애 시 확인 순서가 더 중요합니다.",
+    "solution": "설정, 실행, 점검 명령을 프로젝트 안에 모아 로컬에서 반복 가능한 운영 루틴으로 구성했습니다.",
+    "architecture": {
+      "summary": "Linux Admin Lab는 linux operations and service setup 관점으로 작은 단위의 책임을 나누고, 실행 가능한 소스 중심 증거를 남기는 방식으로 구성했습니다.",
+      "items": [
+        "Command targets capture common admin flows.",
+        "Configuration files document service boundaries.",
+        "Checklist-style notes preserve verification order."
+      ]
+    },
+    "decisions": [
+      "웹 데모를 억지로 붙이지 않고 Source only 상태로 분리했습니다.",
+      "프로젝트 성격이 한눈에 보이도록 카테고리, 역할, 핵심 스택을 먼저 노출합니다.",
+      "상세 페이지에서는 문제, 해결 방향, 구조, 트레이드오프를 같은 포맷으로 비교할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "로컬 소스 중심 프로젝트라 브라우저에서 바로 체험하는 흐름은 제한적입니다.",
+      "19개를 모두 같은 크기의 카드로만 보여주면 밀도가 높아져, 목록 페이지에서는 트랙별 그룹으로 스캔하게 했습니다."
+    ],
+    "results": [
+      "Portfolio entry is available as an individual case-study route.",
+      "GitHub link is intentionally omitted until the public repository URL is ready."
+    ]
+  },
+  {
+    "id": "network-routing-notes",
+    "order": "18",
+    "title": "Network Routing Notes",
+    "category": "Network & Infrastructure",
+    "featured": false,
+    "enabled": true,
+    "period": "42 curriculum",
+    "role": "Network design and routing study",
+    "summary": "A networking notes project that organizes routing concepts, diagrams, and verification thinking.",
+    "description": "라우팅 개념, 네트워크 경계, 검증 관점을 정리한 네트워크 학습 및 설계 노트 프로젝트입니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/42/network-routing-notes/cover.svg",
+      "alt": "Network Routing Notes technical preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/42/network-routing-notes/cover.svg",
+        "alt": "Network Routing Notes technical preview"
+      }
+    ],
+    "stack": [
+      "networking",
+      "linux",
+      "documentation"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/network-routing-notes",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Routing concept organization",
+      "Network boundary notes",
+      "Verification-oriented study material"
+    ],
+    "problem": "네트워크 지식은 단편 개념으로 남으면 실제 장애나 설계 판단에 연결되기 어렵습니다.",
+    "solution": "라우팅과 경계 개념을 검증 질문 중심으로 정리해 구현 프로젝트와 연결 가능한 참고 자료로 만들었습니다.",
+    "architecture": {
+      "summary": "Network Routing Notes는 network design and routing study 관점으로 작은 단위의 책임을 나누고, 실행 가능한 소스 중심 증거를 남기는 방식으로 구성했습니다.",
+      "items": [
+        "Notes capture concepts as operational questions.",
+        "Network boundaries are described through routing scenarios.",
+        "Verification points connect theory with command-level checks."
+      ]
+    },
+    "decisions": [
+      "웹 데모를 억지로 붙이지 않고 Source only 상태로 분리했습니다.",
+      "프로젝트 성격이 한눈에 보이도록 카테고리, 역할, 핵심 스택을 먼저 노출합니다.",
+      "상세 페이지에서는 문제, 해결 방향, 구조, 트레이드오프를 같은 포맷으로 비교할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "로컬 소스 중심 프로젝트라 브라우저에서 바로 체험하는 흐름은 제한적입니다.",
+      "19개를 모두 같은 크기의 카드로만 보여주면 밀도가 높아져, 목록 페이지에서는 트랙별 그룹으로 스캔하게 했습니다."
+    ],
+    "results": [
+      "Portfolio entry is available as an individual case-study route.",
+      "GitHub link is intentionally omitted until the public repository URL is ready."
+    ]
   }
 ]
