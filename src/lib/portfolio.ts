@@ -1,6 +1,7 @@
 import contactJson from "@/content/contact.json";
 import experienceJson from "@/content/experience.json";
 import journeyJson from "@/content/journey.json";
+import journeyNarrativeJson from "@/content/journey-narrative.json";
 import linksJson from "@/content/links.json";
 import presentationJson from "@/content/presentation.json";
 import profileJson from "@/content/profile.json";
@@ -300,6 +301,13 @@ export type AboutPageContent = {
   skills: { title: string };
 };
 
+export type JourneyPageContent = {
+  hero: { title: string; eyebrow: string };
+  narrative: { title: string; body: string };
+  timeline: { title: string; body: string };
+  now: { title: string; anchorLabel: string };
+};
+
 export type ResumePageContent = {
   hero: {
     title: string;
@@ -326,6 +334,7 @@ export type PresentationContent = {
   pages: {
     about: AboutPageContent;
     contact: ContactPageContent;
+    journey: JourneyPageContent;
     projectDetail: ProjectDetailPageContent;
     projects: ProjectPageContent;
     resume: ResumePageContent;
@@ -425,6 +434,25 @@ export type ResumeContent = {
   notes: string[];
 };
 
+export type JourneyMilestone = {
+  id: string;
+  date: string;
+  title: string;
+  state: string;
+  reason: string;
+  result: string;
+  anchorProjectIds: string[];
+};
+
+export type JourneyNarrativeContent = {
+  intro: string;
+  milestones: JourneyMilestone[];
+  currentPosition: {
+    title: string;
+    body: string;
+  };
+};
+
 export type PortfolioContent = {
   site: SiteContent;
   profile: ProfileContent;
@@ -434,6 +462,7 @@ export type PortfolioContent = {
   techStack: TechStackItem[];
   experience: ExperienceItem[];
   journey: JourneyItem[];
+  journeyNarrative: JourneyNarrativeContent;
   links: ContentLink[];
   contact: ContactContent;
   resume: ResumeContent;
@@ -463,6 +492,7 @@ const journey = (journeyJson as JourneyItem[]).slice().sort((left, right) => {
 const links = linksJson as ContentLink[];
 const contact = contactJson as ContactContent;
 const resume = resumeJson as ResumeContent;
+const journeyNarrative = journeyNarrativeJson as JourneyNarrativeContent;
 const techStackById = new Map(techStack.map((item) => [item.id, item]));
 
 function withEnvHref(link: ContentLink, env: PortfolioEnv): ContentLink {
@@ -502,6 +532,7 @@ export function getPortfolioContent(
     techStack,
     experience,
     journey,
+    journeyNarrative,
     links: getEnabledLinks(),
     contact,
     resume,

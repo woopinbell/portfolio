@@ -312,6 +312,24 @@
         "title": "Skills"
       }
     },
+    "journey": {
+      "hero": {
+        "title": "Journey",
+        "eyebrow": "Timeline narrative"
+      },
+      "narrative": {
+        "title": "시점별 결정",
+        "body": "주요 결정 시점마다 직전 상태, 결정 이유, 결과를 한 단락으로 남깁니다."
+      },
+      "timeline": {
+        "title": "전체 타임라인",
+        "body": "Git 이력에서 정리한 작업 시작과 완료 흐름입니다. 각 항목은 해당 프로젝트 상세로 이동합니다."
+      },
+      "now": {
+        "title": "현재 위치",
+        "anchorLabel": "관련 case study"
+      }
+    },
     "resume": {
       "hero": {
         "title": "Resume",

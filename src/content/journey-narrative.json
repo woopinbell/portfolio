@@ -1,0 +1,57 @@
+{
+  "intro": "포트폴리오는 시간순 학습 흐름 위에 만들어졌습니다. 각 단계의 결정이 다음 단계의 출발점이 되었고, 카드 목록이 보여주지 못하는 결정의 연쇄를 이 페이지에서 한 흐름으로 따라갈 수 있습니다.",
+  "milestones": [
+    {
+      "id": "curriculum-start",
+      "date": "2023-01",
+      "title": "42 Seoul 입과와 C 트랙 결정",
+      "state": "웹 개발에 진입하기 전, 시스템 레벨 어휘를 먼저 갖고 싶었습니다. 인터넷 강의로 React 튜토리얼을 따라가는 흐름은 결정 근거를 만들어 주지 못한다는 판단이 있었습니다.",
+      "reason": "Unix, C, 메모리, 프로세스 모델을 손으로 다뤄야 이후 어떤 stack을 택해도 추상화 안쪽을 설명할 수 있다고 봤습니다.",
+      "result": "Format Printer, Line Stream Reader, Small Shell, Thread Dining Lab으로 이어지는 C 트랙이 portfolio의 가장 두꺼운 archive 층을 이루게 됐습니다.",
+      "anchorProjectIds": ["format-printer", "small-shell", "thread-dining"]
+    },
+    {
+      "id": "network-fork",
+      "date": "2024-04",
+      "title": "Network 트랙 분기와 IRC Relay 결정",
+      "state": "C++ Advanced 트랙을 마쳤지만, socket과 protocol 경계는 책의 다이어그램으로만 다뤘던 상태였습니다.",
+      "reason": "Server side를 추상화 없이 한 번 작성하지 않으면, 이후 어떤 framework를 써도 connection 수명과 명령 파싱을 설명하기 어렵다고 판단했습니다.",
+      "result": "IRC Relay Server에서 socket, command parsing, channel state, client coordination을 직접 다루며 protocol 경계를 손에 익혔고, 이 결정이 이후 게임 서버 트랙의 진입 비용을 크게 낮췄습니다.",
+      "anchorProjectIds": ["irc-relay-server"]
+    },
+    {
+      "id": "pong-product-pivot",
+      "date": "2024-08",
+      "title": "Pong Pong Realtime MVP, 학습 코드에서 제품으로",
+      "state": "42 archive는 두꺼웠지만 사용자가 만지는 실시간 화면은 한 번도 만들어보지 않은 상태였습니다.",
+      "reason": "Realtime matchmaking, server authoritative state, Docker stack을 한 프로젝트 안에서 묶지 않으면 \"학습 코드\"와 \"제품\"의 경계를 설명할 수 없다고 봤습니다.",
+      "result": "WebSocket lobby, tournament 흐름, 서버 권위 game state를 갖춘 MVP가 나왔고, portfolio가 학습 archive 외에 제품형 결정 영역을 가지게 됐습니다.",
+      "anchorProjectIds": ["pong-pong"]
+    },
+    {
+      "id": "reliability-track-start",
+      "date": "2024-11",
+      "title": "Reliability Training 시리즈 신설",
+      "state": "Pong Pong MVP를 만들고 나니, 결정의 다음 층은 \"기능을 추가하는 법\"이 아니라 \"failure mode를 의도적으로 다루는 법\"이라는 점이 분명해졌습니다.",
+      "reason": "Idempotency key, transaction race, retry, outbox, optimistic update, virtualization 같은 reliability 어휘는 product 코드 안에 자연스럽게 등장하지 않습니다. 별도 훈련 트랙으로 분리해야 결정 근거를 남길 수 있다고 봤습니다.",
+      "result": "Backend Foundations / Reliability 한 쌍이 이 시점부터 portfolio의 reliability 층을 이뤘습니다. 다른 도메인의 훈련 트랙도 같은 방식으로 진행했지만, 공개 큐레이션에서는 결정 영역이 겹치지 않도록 backend 한 쌍만 남겼습니다.",
+      "anchorProjectIds": [
+        "backend-foundations-training",
+        "backend-reliability-training"
+      ]
+    },
+    {
+      "id": "portfolio-meta",
+      "date": "2026-05",
+      "title": "Portfolio Site, 컨테이너 자체를 결정 기록으로",
+      "state": "프로젝트는 충분히 쌓였지만, 그 큐레이션 결정과 비어 있는 영역을 어디에도 명시하지 않은 상태였습니다.",
+      "reason": "Portfolio가 단순 카드 목록이라면, 결정의 연쇄와 의도적인 누락을 설명할 자리가 없습니다. 컨테이너 자체를 콘텐츠 시스템으로 다뤄야 큐레이션을 다음 결정 기록으로 이어갈 수 있다고 봤습니다.",
+      "result": "Next.js content registry, case study presentation, 시점별 결정 narrative, 면접 매핑, 큐레이션 근거 페이지가 portfolio-site 안에서 한 묶음이 됐습니다.",
+      "anchorProjectIds": ["portfolio-site"]
+    }
+  ],
+  "currentPosition": {
+    "title": "지금 어디에 있는가",
+    "body": "Timeline의 가장 최근 지점은 portfolio-site 자체입니다. 다음 결정은 Sportsbook의 분산 백엔드를 실 운영 관점(정산 재처리, 장애 주입, 관측성)까지 끌어내는 일과, reliability 훈련에서 쌓은 어휘를 제품 코드 안으로 옮겨 보는 일을 함께 검토하고 있습니다."
+  }
+}

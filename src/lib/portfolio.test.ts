@@ -26,6 +26,7 @@ describe("portfolio content", () => {
     expect(content.site.navigation.map((item) => item.href)).toEqual([
       "/",
       "/projects",
+      "/journey",
       "/about",
       "/resume",
       "/contact",
