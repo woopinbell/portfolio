@@ -1,5 +1,6 @@
 import contactJson from "@/content/contact.json";
 import experienceJson from "@/content/experience.json";
+import interviewMapJson from "@/content/interview-map.json";
 import journeyJson from "@/content/journey.json";
 import journeyNarrativeJson from "@/content/journey-narrative.json";
 import linksJson from "@/content/links.json";
@@ -308,6 +309,17 @@ export type JourneyPageContent = {
   now: { title: string; anchorLabel: string };
 };
 
+export type InterviewMapPageContent = {
+  hero: { title: string; eyebrow: string };
+  tracks: {
+    title: string;
+    answerLabel: string;
+    depthLabel: string;
+    referenceLabel: string;
+  };
+  gaps: { ariaLabel: string };
+};
+
 export type ResumePageContent = {
   hero: {
     title: string;
@@ -334,6 +346,7 @@ export type PresentationContent = {
   pages: {
     about: AboutPageContent;
     contact: ContactPageContent;
+    interviewMap: InterviewMapPageContent;
     journey: JourneyPageContent;
     projectDetail: ProjectDetailPageContent;
     projects: ProjectPageContent;
@@ -453,6 +466,40 @@ export type JourneyNarrativeContent = {
   };
 };
 
+export type InterviewMapReference = {
+  label: string;
+  href: string;
+};
+
+export type InterviewMapAnswer = {
+  projectId: string;
+  depth: string;
+};
+
+export type InterviewMapItem = {
+  label: string;
+  reference: string;
+  answers: InterviewMapAnswer[];
+};
+
+export type InterviewMapTrack = {
+  id: string;
+  label: string;
+  body: string;
+  items: InterviewMapItem[];
+};
+
+export type InterviewMapContent = {
+  intro: string;
+  referenceRepo: InterviewMapReference;
+  tracks: InterviewMapTrack[];
+  gaps: {
+    title: string;
+    body: string;
+    items: string[];
+  };
+};
+
 export type PortfolioContent = {
   site: SiteContent;
   profile: ProfileContent;
@@ -463,6 +510,7 @@ export type PortfolioContent = {
   experience: ExperienceItem[];
   journey: JourneyItem[];
   journeyNarrative: JourneyNarrativeContent;
+  interviewMap: InterviewMapContent;
   links: ContentLink[];
   contact: ContactContent;
   resume: ResumeContent;
@@ -493,6 +541,7 @@ const links = linksJson as ContentLink[];
 const contact = contactJson as ContactContent;
 const resume = resumeJson as ResumeContent;
 const journeyNarrative = journeyNarrativeJson as JourneyNarrativeContent;
+const interviewMap = interviewMapJson as InterviewMapContent;
 const techStackById = new Map(techStack.map((item) => [item.id, item]));
 
 function withEnvHref(link: ContentLink, env: PortfolioEnv): ContentLink {
@@ -533,6 +582,7 @@ export function getPortfolioContent(
     experience,
     journey,
     journeyNarrative,
+    interviewMap,
     links: getEnabledLinks(),
     contact,
     resume,

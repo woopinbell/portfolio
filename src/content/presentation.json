@@ -330,6 +330,21 @@
         "anchorLabel": "관련 case study"
       }
     },
+    "interviewMap": {
+      "hero": {
+        "title": "Interview Map",
+        "eyebrow": "Question reference"
+      },
+      "tracks": {
+        "title": "트랙별 매핑",
+        "answerLabel": "답할 수 있는 프로젝트",
+        "depthLabel": "답하는 깊이",
+        "referenceLabel": "Reference"
+      },
+      "gaps": {
+        "ariaLabel": "답하기 어려운 항목"
+      }
+    },
     "resume": {
       "hero": {
         "title": "Resume",

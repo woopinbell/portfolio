@@ -1,0 +1,168 @@
+{
+  "intro": "이 페이지는 외부 reference 저장소 interview-foundations-checklists의 학습 항목과 portfolio 안의 프로젝트 사이를 잇는 다리입니다. 면접 준비 시점에 한 번 펴서, 어떤 질문에 어떤 프로젝트로 답할 수 있는지 빠르게 훑기 위한 reference이며, 답할 수 없는 영역도 그대로 적어 둡니다.",
+  "referenceRepo": {
+    "label": "interview-foundations-checklists",
+    "href": "https://github.com/woopinbell/interview-foundations-checklists"
+  },
+  "tracks": [
+    {
+      "id": "cs-foundations",
+      "label": "CS 기본기",
+      "body": "운영체제, 네트워크, 데이터베이스, 동시성 같이 추상화 안쪽을 다루는 항목들입니다. 42 archive와 reliability 트랙이 주로 답합니다.",
+      "items": [
+        {
+          "label": "프로세스와 스레드, mutex coordination",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "thread-dining",
+              "depth": "본문 trace exercise: thread lifecycle, mutex coordination, starvation 관찰"
+            },
+            {
+              "projectId": "small-shell",
+              "depth": "decisions 단락: process control, signal handling 결정 기록"
+            }
+          ]
+        },
+        {
+          "label": "파일 디스크립터와 incremental read",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "format-printer",
+              "depth": "decisions 단락: 포맷 파서 edge case 정리"
+            }
+          ]
+        },
+        {
+          "label": "소켓, 프로토콜 경계, command parsing",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "irc-relay-server",
+              "depth": "architecture 본문: socket, command parsing, channel state"
+            }
+          ]
+        },
+        {
+          "label": "Linux 운영, 권한, 서비스 설정",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "linux-admin",
+              "depth": "case study 본문: 서비스 설정, 권한, 네트워크 체크리스트"
+            }
+          ]
+        },
+        {
+          "label": "트랜잭션과 격리 수준, race condition",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "backend-reliability-training",
+              "depth": "본문 trace exercise: transaction race, idempotency, outbox drill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "label": "프론트엔드",
+      "body": "React, Next.js App Router, 폼/상태 관리, 접근성, 성능 같은 항목입니다. portfolio-site 자체가 주로 답하며, 그 외 프론트엔드 reliability 영역은 추가 자료가 필요합니다.",
+      "items": [
+        {
+          "label": "Next.js App Router, 서버 컴포넌트 경계",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "portfolio-site",
+              "depth": "architecture 본문: content registry, server component, searchParams 다루는 결정"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "백엔드",
+      "body": "HTTP, 인증, 세션, 영속성, reliability 결정 영역입니다. 백엔드 foundations / reliability 트랙이 주로 답합니다.",
+      "items": [
+        {
+          "label": "Spring Boot HTTP JSON, 세션 인증, pagination",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "backend-foundations-training",
+              "depth": "case study 본문: Spring spine, capstone branch, Go sub-track"
+            }
+          ]
+        },
+        {
+          "label": "Idempotency, retry, outbox, failure injection",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "backend-reliability-training",
+              "depth": "본문 trace exercise: drill 단위로 실패 모드 reproduce"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-server",
+      "label": "게임 서버",
+      "body": "Session, room, matchmaking, tick 결정 영역입니다. Pong Pong MVP가 주로 답하며, distributed reliability 영역은 추가 자료가 필요합니다.",
+      "items": [
+        {
+          "label": "Session, room, matchmaking, tick model",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "pong-pong",
+              "depth": "decisions 단락: server authoritative state, WebSocket lobby, tournament 흐름"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithms",
+      "label": "알고리즘 / 자료구조",
+      "body": "제한된 연산 안에서 정렬과 컨테이너 행동을 직접 구현한 흔적입니다. 42 algorithm/container 항목이 주로 답합니다.",
+      "items": [
+        {
+          "label": "제한 연산 정렬 계획과 deterministic output",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "stack-sort",
+              "depth": "decisions 단락: 제한된 stack operation 안에서 정렬 계획"
+            }
+          ]
+        },
+        {
+          "label": "STL-like container, iterator, adapter",
+          "reference": "https://github.com/woopinbell/interview-foundations-checklists",
+          "answers": [
+            {
+              "projectId": "stl-container",
+              "depth": "architecture 본문: STL behavior, iterator, adapter, 호환성"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "gaps": {
+    "title": "답하기 어려운 영역",
+    "body": "포트폴리오는 학습과 reliability 결정을 중심으로 큐레이션됐기 때문에 다음 영역의 면접 질문에는 추가 자료 없이 답하기 어렵습니다.",
+    "items": [
+      "대규모 협업의 코드 리뷰 흐름과 incident response 사례. 단독 학습 트랙 위주라 협업 흔적이 portfolio에 들어와 있지 않습니다.",
+      "실제 사용자 metric과 A/B 결과. 제품 표면은 case study only로 운영되며 사용자 수 기반의 의사결정 데이터를 가지고 있지 않습니다.",
+      "장기 운영 중인 시스템의 마이그레이션 / 폐기 결정. 모든 프로젝트가 새로 시작한 코드라 legacy 정리 결정을 담고 있지 않습니다.",
+      "분산 합의, 클러스터 운영, SRE 페이저 사이클. Sportsbook의 분산 백엔드가 distributed 결정 영역의 입구를 만들지만, 실제 운영 환경 경험으로 답하지는 못합니다."
+    ]
+  }
+}

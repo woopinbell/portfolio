@@ -27,6 +27,7 @@ describe("portfolio content", () => {
       "/",
       "/projects",
       "/journey",
+      "/interview-map",
       "/about",
       "/resume",
       "/contact",
