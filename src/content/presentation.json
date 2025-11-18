@@ -310,6 +310,14 @@
       },
       "skills": {
         "title": "Skills"
+      },
+      "curation": {
+        "title": "Curation rationale",
+        "body": "포트폴리오에 어떤 프로젝트가 들어오고 무엇이 빠졌는지 결정 기록으로 남깁니다.",
+        "criteriaTitle": "기준",
+        "categoriesTitle": "카테고리별 큐레이션",
+        "omissionsTitle": "빠진 영역",
+        "nextReviewTitle": "다음 큐레이션 시점"
       }
     },
     "journey": {

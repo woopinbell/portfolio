@@ -1,4 +1,5 @@
 import contactJson from "@/content/contact.json";
+import curationJson from "@/content/curation.json";
 import experienceJson from "@/content/experience.json";
 import interviewMapJson from "@/content/interview-map.json";
 import journeyJson from "@/content/journey.json";
@@ -300,6 +301,14 @@ export type AboutPageContent = {
   principles: { title: string };
   journey: { title: string };
   skills: { title: string };
+  curation: {
+    title: string;
+    body: string;
+    criteriaTitle: string;
+    categoriesTitle: string;
+    omissionsTitle: string;
+    nextReviewTitle: string;
+  };
 };
 
 export type JourneyPageContent = {
@@ -500,6 +509,41 @@ export type InterviewMapContent = {
   };
 };
 
+export type CurationCategory = {
+  id: string;
+  label: string;
+  rationale: string;
+  projectIds: string[];
+};
+
+export type CurationOmissionItem = {
+  title: string;
+  body: string;
+};
+
+export type CurationCriteriaItem = {
+  title: string;
+  body: string;
+};
+
+export type CurationContent = {
+  intro: string;
+  criteria: {
+    title: string;
+    items: CurationCriteriaItem[];
+  };
+  categories: CurationCategory[];
+  omissions: {
+    title: string;
+    body: string;
+    items: CurationOmissionItem[];
+  };
+  nextReview: {
+    title: string;
+    body: string;
+  };
+};
+
 export type PortfolioContent = {
   site: SiteContent;
   profile: ProfileContent;
@@ -511,6 +555,7 @@ export type PortfolioContent = {
   journey: JourneyItem[];
   journeyNarrative: JourneyNarrativeContent;
   interviewMap: InterviewMapContent;
+  curation: CurationContent;
   links: ContentLink[];
   contact: ContactContent;
   resume: ResumeContent;
@@ -542,6 +587,7 @@ const contact = contactJson as ContactContent;
 const resume = resumeJson as ResumeContent;
 const journeyNarrative = journeyNarrativeJson as JourneyNarrativeContent;
 const interviewMap = interviewMapJson as InterviewMapContent;
+const curation = curationJson as CurationContent;
 const techStackById = new Map(techStack.map((item) => [item.id, item]));
 
 function withEnvHref(link: ContentLink, env: PortfolioEnv): ContentLink {
@@ -583,6 +629,7 @@ export function getPortfolioContent(
     journey,
     journeyNarrative,
     interviewMap,
+    curation,
     links: getEnabledLinks(),
     contact,
     resume,
