@@ -33,8 +33,11 @@ describe("Home", () => {
     expect(
       screen.getByRole("heading", { level: 2, name: "Lead case studies" }),
     ).toBeInTheDocument();
-    expect(screen.getAllByText("Grounded Travel Agent")[0]).toBeInTheDocument();
-    expect(screen.getAllByText("Chatbot Evaluation Lab")[0]).toBeInTheDocument();
+    expect(
+      screen.getAllByText("Sportsbook — Distributed Betting Platform")[0],
+    ).toBeInTheDocument();
+    expect(screen.getAllByText("Backend Reliability Training")[0]).toBeInTheDocument();
+    expect(screen.getAllByText("Pong Pong Realtime MVP")[0]).toBeInTheDocument();
     expect(screen.getAllByText("Portfolio Site")[0]).toBeInTheDocument();
     expect(screen.queryByText("Operations Dashboard")).not.toBeInTheDocument();
     expect(screen.getAllByText("Case Study")[0]).toBeInTheDocument();

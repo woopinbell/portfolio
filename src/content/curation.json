@@ -15,16 +15,28 @@
   },
   "categories": [
     {
+      "id": "distributed-backend",
+      "label": "Distributed Backend (Sportsbook)",
+      "rationale": "9개 독립 Spring Boot 서비스로 베팅→지갑→정산 머니 흐름을 멱등하게 다룬 분산 시스템.",
+      "projectIds": [
+        "sportsbook"
+      ]
+    },
+    {
       "id": "portfolio-system",
       "label": "Portfolio System",
       "rationale": "Portfolio 자체를 콘텐츠 시스템과 case study presentation으로 다루며, 큐레이션·결정 narrative·면접 매핑까지 한 묶음으로 운영합니다. 단순 카드 목록 사이트는 결정 기록을 둘 자리가 없다는 판단에서 이 항목을 가장 위 층에 둡니다.",
-      "projectIds": ["portfolio-site"]
+      "projectIds": [
+        "portfolio-site"
+      ]
     },
     {
       "id": "realtime-product",
       "label": "Realtime Product",
       "rationale": "실시간 matchmaking, server authoritative state, Docker stack을 한 프로젝트 안에 묶은 흔적입니다. \"학습 코드\"와 \"제품\"의 경계를 설명하기 위해 한 MVP를 남겼고, 같은 결정 영역의 변형은 추가하지 않았습니다.",
-      "projectIds": ["pong-pong"]
+      "projectIds": [
+        "pong-pong"
+      ]
     },
     {
       "id": "reliability-training",

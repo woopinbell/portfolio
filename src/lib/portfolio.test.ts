@@ -92,16 +92,17 @@ describe("portfolio content", () => {
     const content = getPortfolioContent({});
 
     expect(getFeaturedProjects(content).map((project) => project.id)).toEqual([
-      "grounded-travel",
-      "chatbot-evaluation",
+      "sportsbook",
+      "backend-reliability-training",
+      "pong-pong",
       "portfolio-site",
     ]);
     expect(getResumeProjects(content).map((project) => project.id)).toEqual([
-      "grounded-travel",
-      "chatbot-evaluation",
       "portfolio-site",
-      "reliability-training-series",
+      "pong-pong",
+      "backend-reliability-training",
       "small-shell",
+      "stl-container",
     ]);
   });
 
@@ -117,7 +118,7 @@ describe("portfolio content", () => {
       [...content.journey.map((item) => item.date)].sort(),
     );
     expect(content.journey.map((item) => item.projectId)).toContain(
-      "grounded-travel",
+      "backend-reliability-training",
     );
     expect(content.journey.map((item) => item.projectId)).not.toContain(
       "pong-pong-platform",

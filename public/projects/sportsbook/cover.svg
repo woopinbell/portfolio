@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Sportsbook architecture">
+  <rect width="960" height="540" fill="#0b1120"/>
+  <text x="480" y="250" fill="#e2e8f0" font-family="monospace" font-size="32" text-anchor="middle">Sportsbook — Distributed Backend</text>
+  <text x="480" y="298" fill="#94a3b8" font-family="monospace" font-size="19" text-anchor="middle">betting → wallet → settlement · Kafka · gateway</text>
+  <text x="480" y="342" fill="#64748b" font-family="monospace" font-size="13" text-anchor="middle">(placeholder — replace with real architecture diagram)</text>
+</svg>

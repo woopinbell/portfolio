@@ -1,80 +1,191 @@
 [
   {
-    "id": "portfolio-site",
-    "order": "02",
-    "title": "Portfolio Site",
-    "category": "Portfolio System",
+    "id": "sportsbook",
+    "order": "00",
+    "title": "Sportsbook — Distributed Betting Platform",
+    "category": "Distributed Backend",
     "featured": true,
     "enabled": true,
     "period": "2026",
-    "role": "Content system, case study presentation, and visual polish",
-    "summary": "The current Next.js portfolio system, upgraded to present product UI, engineering evidence, and a complete project archive.",
-    "description": "프로젝트 목록을 직접 코드에 흩뿌리지 않고 JSON content registry, reusable components, case study routes, screenshot assets, tests로 관리하는 포트폴리오 자체 프로젝트입니다.",
+    "role": "Distributed JVM backend — betting, wallet ledger, settlement, risk across services",
+    "summary": "A Spring Boot microservices sportsbook: bet placement, an idempotent wallet ledger, settlement/payout, risk limits, and odds ingestion, wired over Kafka with an API gateway and shared contracts.",
+    "description": "9개 독립 Spring Boot 서비스로 구성한 분산 베팅 플랫폼입니다. 베팅 생성 → 지갑 차감 → 정산/페이아웃으로 이어지는 머니 흐름을 멱등성과 트랜잭션 경계로 안전하게 처리하고, 서비스 간 통신은 Kafka 이벤트와 shared 프로토콜 계약으로 묶었습니다. 게이트웨이가 인증·라우팅을 담당하고, resilience4j로 장애 격리를 둡니다.",
     "deployment": {
-      "status": "case-study-only",
-      "label": "This site",
+      "status": "source-only",
+      "label": "Source (9-service system)",
       "showBadge": true
     },
     "screenshot": {
-      "src": "/projects/portfolio-site/cover.svg",
-      "alt": "Portfolio Site editorial case study preview"
+      "src": "/projects/sportsbook/cover.svg",
+      "alt": "Sportsbook distributed services and money-flow architecture"
     },
     "screenshots": [
       {
-        "src": "/projects/portfolio-site/cover.svg",
-        "alt": "Portfolio Site homepage, project index, and case study preview"
+        "src": "/projects/sportsbook/cover.svg",
+        "alt": "betting -> wallet -> settlement money flow across Spring Boot services over Kafka"
       }
     ],
     "stack": [
-      "nextjs",
-      "react",
-      "typescript",
-      "tailwind",
-      "vitest",
-      "playwright"
+      "java",
+      "spring",
+      "kafka",
+      "postgresql",
+      "docker",
+      "resilience4j"
     ],
     "links": [
       {
         "type": "case-study",
         "label": "Case Study",
-        "href": "/projects/portfolio-site",
+        "href": "/projects/sportsbook",
+        "external": false,
+        "enabled": true
+      },
+      {
+        "type": "github",
+        "label": "betting-service",
+        "href": "https://github.com/woopinbell/sportsbook-betting-service",
+        "external": true,
+        "enabled": true
+      },
+      {
+        "type": "github",
+        "label": "wallet-service",
+        "href": "https://github.com/woopinbell/sportsbook-wallet-service",
+        "external": true,
+        "enabled": true
+      },
+      {
+        "type": "github",
+        "label": "settlement-service",
+        "href": "https://github.com/woopinbell/sportsbook-settlement-service",
+        "external": true,
+        "enabled": true
+      },
+      {
+        "type": "github",
+        "label": "shared-protocol",
+        "href": "https://github.com/woopinbell/sportsbook-shared-protocol",
+        "external": true,
+        "enabled": true
+      },
+      {
+        "type": "github",
+        "label": "gateway",
+        "href": "https://github.com/woopinbell/sportsbook-gateway",
+        "external": true,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Money vertical: bet placement -> wallet debit -> settlement/payout with idempotency keys and transactional boundaries to prevent double-spend and oversell",
+      "9 independent Spring Boot services communicating over Kafka events with a shared contract package",
+      "Spring Cloud Gateway edge (auth/routing) and resilience4j fault isolation across services"
+    ],
+    "problem": "베팅은 돈을 다루므로 중복 요청·재시도·동시성에서 한 번만 정확히 반영되어야 하고, 그 책임이 여러 서비스에 흩어집니다.",
+    "solution": "shared 프로토콜로 서비스 경계를 먼저 고정하고, wallet 원장에 멱등성 키와 트랜잭션 경계를 두어 베팅→차감→정산 흐름을 정확히 한 번만 처리하도록 분리했습니다. 서비스 간에는 Kafka 이벤트로 결합도를 낮췄습니다.",
+    "architecture": {
+      "summary": "betting/wallet/settlement/risk/odds-feed/admin 도메인 서비스 + gateway(엣지) + shared-protocol(계약) + orchestration(횡단: Kafka·resilience·관측성)으로 구성한 멀티 레포 시스템입니다.",
+      "items": [
+        "betting-service places and tracks bets; wallet-service is an idempotent ledger for debit/credit.",
+        "settlement-service settles results into payouts; risk-service enforces exposure limits.",
+        "shared-protocol pins inter-service contracts; gateway handles auth and routing at the edge.",
+        "Services are decoupled over Kafka; orchestration centralizes cross-cutting reliability and observability."
+      ]
+    },
+    "decisions": [
+      "계약(shared-protocol)을 먼저 설계해 서비스 경계와 이벤트 스키마를 고정했습니다.",
+      "돈 정확성을 위해 wallet에 멱등성 키와 트랜잭션 경계를 두어 중복/재시도에서 한 번만 반영되게 했습니다.",
+      "서비스 간 직접 호출 대신 Kafka 이벤트로 결합도를 낮추고 장애 격리를 resilience4j로 처리했습니다."
+    ],
+    "tradeoffs": [
+      "마이크로서비스 분리는 로컬 운영 복잡도(여러 레포·브로커)를 키우지만, 도메인·장애 경계를 명확히 하는 대가로 택했습니다.",
+      "이벤트 기반 정합성은 최종 일관성을 받아들이는 대신 서비스 간 강결합을 피합니다."
+    ],
+    "results": [
+      "betting -> wallet -> settlement 머니 버티컬이 서비스 경계를 넘어 멱등하게 동작합니다.",
+      "공개 셋(betting/wallet/settlement/shared-protocol/gateway)으로 분산 백엔드 설계를 한 시스템으로 제시합니다.",
+      "9개 서비스가 shared 계약과 Kafka 이벤트로 묶인 분산 시스템 케이스 스터디입니다."
+    ]
+  },
+  {
+    "id": "backend-reliability-training",
+    "order": "01",
+    "title": "Backend Reliability Training",
+    "category": "Backend Training",
+    "featured": true,
+    "enabled": true,
+    "period": "2025",
+    "role": "Reliability drill design and exercise authoring",
+    "summary": "Backend reliability training across idempotency, transaction races, rate limiting, retries, observability, and failure injection with Spring Boot and a Go supplement.",
+    "description": "Java 21, Spring Boot 3, Go 표준 라이브러리로 구성된 backend reliability 훈련 저장소입니다. essential, advanced, sre, domain 트랙과 go-sub 비교 트랙으로 idempotency, transaction races, cursor pagination, rate limit, job retry, cache invalidation, outbox, observability, failure injection을 다룹니다.",
+    "deployment": {
+      "status": "source-only",
+      "label": "Source only",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/backend-reliability-training/cover.svg",
+      "alt": "Backend Reliability Training tracks preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/backend-reliability-training/cover.svg",
+        "alt": "Essential, advanced, SRE, domain, and Go supplement track preview"
+      }
+    ],
+    "stack": [
+      "java",
+      "spring",
+      "go",
+      "postgresql",
+      "gradle",
+      "make",
+      "docker"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/backend-reliability-training",
         "external": false,
         "enabled": true
       }
     ],
     "highlights": [
-      "Content-driven project registry for full work history",
-      "Case study routes for design decisions, architecture, tradeoffs, and results",
-      "Responsive homepage, projects index, resume sync, and browser verification"
+      "Essential track of signup invariants, idempotency keys, transaction races, cursor pagination, rate limiting, and job retry",
+      "Advanced and SRE tracks covering cache invalidation, outbox, observability tracing, failure injection, and chaos drills",
+      "Go sub-track restating the same ideas with the standard library only"
     ],
-    "problem": "주니어 포트폴리오는 프로젝트 수가 많아질수록 핵심 제품형 작업과 학습형 작업이 섞여 첫인상이 흐려질 수 있습니다.",
-    "solution": "대표 case study를 먼저 보여주고, 42/훈련/풀스택 작업은 구조화된 archive로 정리해 깊이와 가독성을 동시에 유지했습니다.",
+    "problem": "백엔드 reliability는 제품 구현만으로는 표면에 드러나지 않는 idempotency, transaction race, cache invalidation, failure injection 같은 영역에서 결정의 깊이가 갈립니다.",
+    "solution": "essential→advanced→sre→domain의 4단계 트랙으로 reliability 결정 영역을 좁힌 exercise로 분리하고, Go sub-track으로 같은 문제를 standard library로 다시 푸는 비교 학습 경로를 두었습니다.",
     "architecture": {
-      "summary": "Next.js App Router, JSON content files, shared presentation components, image assets, unit tests, Playwright tests를 사용해 포트폴리오를 수정 가능한 제품처럼 관리합니다.",
+      "summary": "spring-main 안에 essential/advanced/sre/domain 4개 디렉터리를 두고, go-sub에 그에 대응하는 standard-library 구현을 두어 같은 문제의 두 접근을 같은 저장소에서 비교합니다.",
       "items": [
-        "Content files own profile, skills, projects, links, resume, and contact data.",
-        "Reusable cards, screenshots, links, stack chips, reveal motion, and site shell keep UI consistent.",
-        "Tests verify navigation, content helpers, live demo fallback, source-only behavior, and rendered home sections."
+        "Essential exercises focus on signup invariants, idempotency, transaction races, cursor pagination, rate limit, and job retry.",
+        "Advanced exercises cover cache invalidation, outbox publishing, authorization policy, file upload safety, observability tracing, and failure injection.",
+        "SRE exercises practice load testing, chaos drills, slow dependency timeouts, and trace-to-on-call alert handling.",
+        "Domain exercises bring saga compensation, event sourcing, CQRS projection, multi-region failover, and bulkheads into the spring track.",
+        "Go sub-track focuses on rate limiters, worker pools, HTTP timeouts, and idempotency keys with standard-library only."
       ]
     },
     "decisions": [
-      "첫 화면은 개발자 소개보다 대표 제품 화면과 case study 진입을 더 크게 보여주도록 조정했습니다.",
-      "작업 전체 목록은 Projects 페이지에서 category group으로 분리해 채용자가 필요한 깊이만 선택하게 했습니다.",
-      "포트폴리오 자체도 프로젝트로 등록해 콘텐츠 시스템과 디자인 개선 과정을 검토할 수 있게 했습니다."
+      "essential→advanced→sre→domain 4단 진행으로 reliability 결정 깊이를 단계별로 노출했습니다.",
+      "각 exercise는 problem, contract, run command, passing criteria를 README에 명시해 자동 검증과 자기 검증이 일치하도록 했습니다.",
+      "Go sub-track은 같은 문제의 standard-library 구현을 보여주어 Spring 추상화의 비용/이득을 비교할 수 있게 합니다."
     ],
     "tradeoffs": [
-      "모든 프로젝트를 동일한 깊이로 설명하지 않고 대표 작업과 archive 작업의 밀도를 다르게 처리합니다.",
-      "외부 배포 링크가 없는 작업은 무리한 demo 버튼 대신 case study와 source-first 설명으로 남깁니다."
+      "Optional Docker-backed 시나리오를 두면 setup이 무거워지므로 deterministic local test를 기본으로 두고 Docker는 부가로 분리했습니다.",
+      "exercise 수가 많아 spine 흐름이 흐려질 수 있어, 트랙별 디렉터리와 README 형식 규칙을 일관되게 유지합니다."
     ],
     "results": [
-      "The portfolio now covers the user's full project history without forcing every item into the same visual weight.",
-      "The homepage presents design-centered evidence before lower-level implementation archives.",
-      "Content updates stay testable because projects, resume entries, and links share the same registry."
+      "make test, make test-spring, make test-go targets give a single entry point across the tracks.",
+      "Each exercise can be inspected individually via make test-spring-exercise EX=... or test-go-exercise EX=... for focused regression checks."
     ]
   },
   {
     "id": "pong-pong",
-    "order": "03",
+    "order": "02",
     "title": "Pong Pong Realtime MVP",
     "category": "Realtime Product",
     "featured": true,
@@ -149,8 +260,81 @@
     ]
   },
   {
+    "id": "portfolio-site",
+    "order": "03",
+    "title": "Portfolio Site",
+    "category": "Portfolio System",
+    "featured": true,
+    "enabled": true,
+    "period": "2026",
+    "role": "Content system, case study presentation, and visual polish",
+    "summary": "The current Next.js portfolio system, upgraded to present product UI, engineering evidence, and a complete project archive.",
+    "description": "프로젝트 목록을 직접 코드에 흩뿌리지 않고 JSON content registry, reusable components, case study routes, screenshot assets, tests로 관리하는 포트폴리오 자체 프로젝트입니다.",
+    "deployment": {
+      "status": "case-study-only",
+      "label": "This site",
+      "showBadge": true
+    },
+    "screenshot": {
+      "src": "/projects/portfolio-site/cover.svg",
+      "alt": "Portfolio Site editorial case study preview"
+    },
+    "screenshots": [
+      {
+        "src": "/projects/portfolio-site/cover.svg",
+        "alt": "Portfolio Site homepage, project index, and case study preview"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "react",
+      "typescript",
+      "tailwind",
+      "vitest",
+      "playwright"
+    ],
+    "links": [
+      {
+        "type": "case-study",
+        "label": "Case Study",
+        "href": "/projects/portfolio-site",
+        "external": false,
+        "enabled": true
+      }
+    ],
+    "highlights": [
+      "Content-driven project registry for full work history",
+      "Case study routes for design decisions, architecture, tradeoffs, and results",
+      "Responsive homepage, projects index, resume sync, and browser verification"
+    ],
+    "problem": "주니어 포트폴리오는 프로젝트 수가 많아질수록 핵심 제품형 작업과 학습형 작업이 섞여 첫인상이 흐려질 수 있습니다.",
+    "solution": "대표 case study를 먼저 보여주고, 42/훈련/풀스택 작업은 구조화된 archive로 정리해 깊이와 가독성을 동시에 유지했습니다.",
+    "architecture": {
+      "summary": "Next.js App Router, JSON content files, shared presentation components, image assets, unit tests, Playwright tests를 사용해 포트폴리오를 수정 가능한 제품처럼 관리합니다.",
+      "items": [
+        "Content files own profile, skills, projects, links, resume, and contact data.",
+        "Reusable cards, screenshots, links, stack chips, reveal motion, and site shell keep UI consistent.",
+        "Tests verify navigation, content helpers, live demo fallback, source-only behavior, and rendered home sections."
+      ]
+    },
+    "decisions": [
+      "첫 화면은 개발자 소개보다 대표 제품 화면과 case study 진입을 더 크게 보여주도록 조정했습니다.",
+      "작업 전체 목록은 Projects 페이지에서 category group으로 분리해 채용자가 필요한 깊이만 선택하게 했습니다.",
+      "포트폴리오 자체도 프로젝트로 등록해 콘텐츠 시스템과 디자인 개선 과정을 검토할 수 있게 했습니다."
+    ],
+    "tradeoffs": [
+      "모든 프로젝트를 동일한 깊이로 설명하지 않고 대표 작업과 archive 작업의 밀도를 다르게 처리합니다.",
+      "외부 배포 링크가 없는 작업은 무리한 demo 버튼 대신 case study와 source-first 설명으로 남깁니다."
+    ],
+    "results": [
+      "The portfolio now covers the user's full project history without forcing every item into the same visual weight.",
+      "The homepage presents design-centered evidence before lower-level implementation archives.",
+      "Content updates stay testable because projects, resume entries, and links share the same registry."
+    ]
+  },
+  {
     "id": "backend-foundations-training",
-    "order": "04",
+    "order": "06",
     "title": "Backend Foundations Training",
     "category": "Backend Training",
     "featured": false,
@@ -222,83 +406,8 @@
     ]
   },
   {
-    "id": "backend-reliability-training",
-    "order": "06",
-    "title": "Backend Reliability Training",
-    "category": "Backend Training",
-    "featured": false,
-    "enabled": true,
-    "period": "2025",
-    "role": "Reliability drill design and exercise authoring",
-    "summary": "Backend reliability training across idempotency, transaction races, rate limiting, retries, observability, and failure injection with Spring Boot and a Go supplement.",
-    "description": "Java 21, Spring Boot 3, Go 표준 라이브러리로 구성된 backend reliability 훈련 저장소입니다. essential, advanced, sre, domain 트랙과 go-sub 비교 트랙으로 idempotency, transaction races, cursor pagination, rate limit, job retry, cache invalidation, outbox, observability, failure injection을 다룹니다.",
-    "deployment": {
-      "status": "source-only",
-      "label": "Source only",
-      "showBadge": true
-    },
-    "screenshot": {
-      "src": "/projects/backend-reliability-training/cover.svg",
-      "alt": "Backend Reliability Training tracks preview"
-    },
-    "screenshots": [
-      {
-        "src": "/projects/backend-reliability-training/cover.svg",
-        "alt": "Essential, advanced, SRE, domain, and Go supplement track preview"
-      }
-    ],
-    "stack": [
-      "java",
-      "spring",
-      "go",
-      "postgresql",
-      "gradle",
-      "make",
-      "docker"
-    ],
-    "links": [
-      {
-        "type": "case-study",
-        "label": "Case Study",
-        "href": "/projects/backend-reliability-training",
-        "external": false,
-        "enabled": true
-      }
-    ],
-    "highlights": [
-      "Essential track of signup invariants, idempotency keys, transaction races, cursor pagination, rate limiting, and job retry",
-      "Advanced and SRE tracks covering cache invalidation, outbox, observability tracing, failure injection, and chaos drills",
-      "Go sub-track restating the same ideas with the standard library only"
-    ],
-    "problem": "백엔드 reliability는 제품 구현만으로는 표면에 드러나지 않는 idempotency, transaction race, cache invalidation, failure injection 같은 영역에서 결정의 깊이가 갈립니다.",
-    "solution": "essential→advanced→sre→domain의 4단계 트랙으로 reliability 결정 영역을 좁힌 exercise로 분리하고, Go sub-track으로 같은 문제를 standard library로 다시 푸는 비교 학습 경로를 두었습니다.",
-    "architecture": {
-      "summary": "spring-main 안에 essential/advanced/sre/domain 4개 디렉터리를 두고, go-sub에 그에 대응하는 standard-library 구현을 두어 같은 문제의 두 접근을 같은 저장소에서 비교합니다.",
-      "items": [
-        "Essential exercises focus on signup invariants, idempotency, transaction races, cursor pagination, rate limit, and job retry.",
-        "Advanced exercises cover cache invalidation, outbox publishing, authorization policy, file upload safety, observability tracing, and failure injection.",
-        "SRE exercises practice load testing, chaos drills, slow dependency timeouts, and trace-to-on-call alert handling.",
-        "Domain exercises bring saga compensation, event sourcing, CQRS projection, multi-region failover, and bulkheads into the spring track.",
-        "Go sub-track focuses on rate limiters, worker pools, HTTP timeouts, and idempotency keys with standard-library only."
-      ]
-    },
-    "decisions": [
-      "essential→advanced→sre→domain 4단 진행으로 reliability 결정 깊이를 단계별로 노출했습니다.",
-      "각 exercise는 problem, contract, run command, passing criteria를 README에 명시해 자동 검증과 자기 검증이 일치하도록 했습니다.",
-      "Go sub-track은 같은 문제의 standard-library 구현을 보여주어 Spring 추상화의 비용/이득을 비교할 수 있게 합니다."
-    ],
-    "tradeoffs": [
-      "Optional Docker-backed 시나리오를 두면 setup이 무거워지므로 deterministic local test를 기본으로 두고 Docker는 부가로 분리했습니다.",
-      "exercise 수가 많아 spine 흐름이 흐려질 수 있어, 트랙별 디렉터리와 README 형식 규칙을 일관되게 유지합니다."
-    ],
-    "results": [
-      "make test, make test-spring, make test-go targets give a single entry point across the tracks.",
-      "Each exercise can be inspected individually via make test-spring-exercise EX=... or test-go-exercise EX=... for focused regression checks."
-    ]
-  },
-  {
     "id": "small-shell",
-    "order": "10",
+    "order": "11",
     "title": "Small Shell",
     "category": "Unix & C Systems",
     "featured": false,
@@ -308,8 +417,8 @@
     "summary": "A Unix shell implementation focused on parsing, expansion, process control, redirection, and signals.",
     "description": "파싱, 확장, 리다이렉션, 파이프, 시그널, 프로세스 실행 흐름을 직접 다루는 셸 구현 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -369,7 +478,7 @@
   },
   {
     "id": "thread-dining",
-    "order": "11",
+    "order": "12",
     "title": "Thread Dining Lab",
     "category": "Unix & C Systems",
     "featured": false,
@@ -379,8 +488,8 @@
     "summary": "A concurrency lab around thread lifecycle, mutex coordination, timing, and starvation avoidance.",
     "description": "스레드, mutex, 시간 제한, 종료 조건을 직접 설계하며 동시성 문제를 관찰하는 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -439,7 +548,7 @@
   },
   {
     "id": "format-printer",
-    "order": "12",
+    "order": "13",
     "title": "Format Printer",
     "category": "Unix & C Systems",
     "featured": false,
@@ -449,8 +558,8 @@
     "summary": "A printf reimplementation in C covering width, precision, flags, and the common conversion specifiers.",
     "description": "printf(3)의 주요 변환 지정자와 플래그를 직접 파싱해 출력하고 결과 바이트 수 또는 오류를 반환하는 ft_printf 라이브러리 구현 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -510,7 +619,7 @@
   },
   {
     "id": "signal-message-bus",
-    "order": "13",
+    "order": "14",
     "title": "Signal Message Bus",
     "category": "Unix & C Systems",
     "featured": false,
@@ -520,8 +629,8 @@
     "summary": "A minitalk-style client/server in C that transports strings between processes using only SIGUSR1 and SIGUSR2 as bit values.",
     "description": "SIGUSR1과 SIGUSR2를 0/1 비트 신호로 사용해 클라이언트가 서버 프로세스에 문자열을 비트 단위로 전송하는 signal 기반 IPC 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -581,7 +690,7 @@
   },
   {
     "id": "ray-scene-tracer",
-    "order": "14",
+    "order": "15",
     "title": "Ray Scene Tracer",
     "category": "Graphics & Rendering",
     "featured": false,
@@ -591,8 +700,8 @@
     "summary": "A ray tracing project focused on scene parsing, camera math, intersections, lighting, and rendered output.",
     "description": "씬 파일을 읽고 카메라, 교차 판정, 조명 계산을 거쳐 이미지를 생성하는 렌더링 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -651,7 +760,7 @@
   },
   {
     "id": "container-stack",
-    "order": "15",
+    "order": "16",
     "title": "Container Stack Lab",
     "category": "C++ & Containers",
     "featured": false,
@@ -661,8 +770,8 @@
     "summary": "A lab for container-oriented service setup, command workflows, and reproducible local environments.",
     "description": "컨테이너 기반 실행 환경과 서비스 구성을 재현 가능한 로컬 워크플로로 다루는 인프라 실습 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -721,7 +830,7 @@
   },
   {
     "id": "irc-relay-server",
-    "order": "16",
+    "order": "17",
     "title": "IRC Relay Server",
     "category": "Network & Infrastructure",
     "featured": false,
@@ -731,8 +840,8 @@
     "summary": "An IRC-style server implementation around sockets, command parsing, channel state, and client coordination.",
     "description": "소켓 연결, 명령 파싱, 채널 상태, 클라이언트 브로드캐스트를 다루는 IRC 스타일 네트워크 서버입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -792,7 +901,7 @@
   },
   {
     "id": "linux-admin",
-    "order": "17",
+    "order": "18",
     "title": "Linux Admin Lab",
     "category": "Network & Infrastructure",
     "featured": false,
@@ -802,8 +911,8 @@
     "summary": "A Linux administration lab for service setup, permissions, networking, and operational checklists.",
     "description": "리눅스 서비스 운영, 권한, 네트워크 설정, 점검 절차를 실습 형태로 정리한 시스템 관리 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -862,7 +971,7 @@
   },
   {
     "id": "network-routing-notes",
-    "order": "18",
+    "order": "19",
     "title": "Network Routing Notes",
     "category": "Network & Infrastructure",
     "featured": false,
@@ -872,8 +981,8 @@
     "summary": "A networking notes project that organizes routing concepts, diagrams, and verification thinking.",
     "description": "라우팅 개념, 네트워크 경계, 검증 관점을 정리한 네트워크 학습 및 설계 노트 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -931,7 +1040,7 @@
   },
   {
     "id": "stack-sort",
-    "order": "19",
+    "order": "20",
     "title": "Stack Sort",
     "category": "Algorithms & Data Structures",
     "featured": false,
@@ -941,8 +1050,8 @@
     "summary": "A push_swap implementation that sorts an integer sequence using only a fixed set of stack operations, with a verifier binary that replays the moves.",
     "description": "두 스택 사이에서 정해진 명령(sa, pa, ra, rra, ss, …)만 사용해 입력을 정렬하는 push_swap 알고리즘 구현과 명령 적용 결과를 검증하는 checker 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
@@ -1003,7 +1112,7 @@
   },
   {
     "id": "stl-container",
-    "order": "20",
+    "order": "21",
     "title": "STL Container",
     "category": "Algorithms & Data Structures",
     "featured": false,
@@ -1013,8 +1122,8 @@
     "summary": "A header-only C++98 reimplementation of vector, stack, and map in the ft namespace, verified against std equivalents.",
     "description": "C++98 표준 라이브러리의 vector, stack, map과 공통 type/iterator utility를 ft namespace에 header-only로 직접 구현하고, 같은 입력에 대해 std 컨테이너와 결과를 비교 테스트하는 프로젝트입니다.",
     "deployment": {
-      "status": "source-only",
-      "label": "Source only",
+      "status": "private",
+      "label": "Private (42 policy)",
       "showBadge": true
     },
     "screenshot": {
